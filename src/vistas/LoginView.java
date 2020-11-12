@@ -11,6 +11,8 @@ import javax.swing.JButton;
 
 public class LoginView extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JButton btnIngresar;
 	private JLabel lblTitulo;
@@ -18,7 +20,7 @@ public class LoginView extends JFrame {
 	private JLabel lblContrasena;
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
-
+	
 	public LoginView() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
