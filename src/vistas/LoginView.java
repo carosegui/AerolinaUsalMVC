@@ -1,8 +1,5 @@
 package vistas;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -118,4 +115,5 @@ public class LoginView extends JFrame {
 	public void setTxtContrasena(JPasswordField txtContrasena) {
 		this.txtContrasena = txtContrasena;
 	}
+	
 }
