@@ -117,4 +117,5 @@ public class LoginView extends JFrame {
 	public void setTxtContrasena(JPasswordField txtContrasena) {
 		this.txtContrasena = txtContrasena;
 	}
+	
 }
