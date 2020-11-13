@@ -13,6 +13,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import tableModels.VuelosTableModel;
+import java.awt.Component;
+import java.awt.Dimension;
+import javax.swing.table.DefaultTableModel;
 
 public class VuelosView extends JFrame {
 
@@ -30,6 +33,7 @@ public class VuelosView extends JFrame {
 	private JTable table;
 	private VuelosTableModel tableModel;
 	private JScrollPane scrollPane;
+	private JPanel panelInferior;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -45,8 +49,15 @@ public class VuelosView extends JFrame {
 	}
 
 	public VuelosView() {
+		initComponents();
+		initTable();
+	}
+	
+	private void initComponents() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 747, 503);
+		setBounds(100, 100, 750, 600);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -147,10 +158,10 @@ public class VuelosView extends JFrame {
 		lblAeropuertoSalida.setBounds(393, 134, 142, 14);
 		contentPane.add(lblAeropuertoSalida);
 		
-		JButton btnNewButton = new JButton("Insertar");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setBounds(142, 235, 89, 23);
-		contentPane.add(btnNewButton);
+		JButton btnIngresar = new JButton("Insertar");
+		btnIngresar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnIngresar.setBounds(142, 235, 89, 23);
+		contentPane.add(btnIngresar);
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -166,10 +177,21 @@ public class VuelosView extends JFrame {
 		btnSeleccionar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnSeleccionar.setBounds(516, 235, 122, 23);
 		contentPane.add(btnSeleccionar);
+		
+		panelInferior = new JPanel();
+		panelInferior.setBounds(0, 285, 746, 288);
+		contentPane.add(panelInferior);
 	}
 	
-	private void initTable() {
+	//TODO: Arreglar tamaño de la tabla
+	private void initTable(/*VuelosDAO dao*/) {
 		//TODO: Logica de la tabla
+		 this.tableModel = new VuelosTableModel(/*dao*/);
+		 this.tableModel.updateModel();
+		 this.table = new JTable(tableModel);
+		 this.scrollPane = new JScrollPane(table);
+		 this.scrollPane.setBounds(0, 0, 746, 288);
+		 panelInferior.add(scrollPane);
 	}
 	
 	public void updateTable() {
