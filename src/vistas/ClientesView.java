@@ -1,15 +1,22 @@
 package vistas;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTextField;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+
+import tableModels.ClientesTableModel;
+
 
 public class ClientesView extends JFrame {
 
@@ -35,6 +42,11 @@ public class ClientesView extends JFrame {
 	private JTextField txtFechaEmision;
 	private JTextField txtFechaVencimiento;
 	private JTextField txtPais_pasaporte;
+	
+	private JTable table;
+	private ClientesTableModel tableModel;
+	private JScrollPane scrollPane;
+	private JPanel panelTabla;
 
 	/**
 	 * Launch the application.
@@ -58,12 +70,14 @@ public class ClientesView extends JFrame {
 	 */
 	public ClientesView() {
 		initComponents();
+		initTable();
 	}
 	
 	private void initComponents() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1220, 600);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -340,8 +354,215 @@ public class ClientesView extends JFrame {
 		btnSeleccionar.setBounds(720, 289, 122, 23);
 		contentPane.add(btnSeleccionar);
 		
-		JPanel panelTabla = new JPanel();
-		panelTabla.setBounds(0, 330, 1206, 233);
+		panelTabla = new JPanel();
+		panelTabla.setBounds(0, 330, 1216, 233);
 		contentPane.add(panelTabla);
 	}
+	
+	private void initTable(/*ClientesDAO dao*/) {
+		 this.tableModel = new ClientesTableModel(/*dao*/);
+		 this.tableModel.updateModel();
+		 panelTabla.setLayout(null);
+		 this.table = new JTable(tableModel);
+		 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		 headers();
+		 this.scrollPane = new JScrollPane(table);
+		 this.scrollPane.setBounds(0, 5, 1216, 444);
+		 panelTabla.add(scrollPane);
+	}
+	
+	private void headers() {
+		//Acomodo los headers
+		 JTableHeader th = table.getTableHeader();
+		 ((DefaultTableCellRenderer)th.getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+		 
+		 TableColumn tc = table.getColumnModel().getColumn(5);
+		 tc.setPreferredWidth(100);
+		 tc = table.getColumnModel().getColumn(13);
+		 tc.setPreferredWidth(100);
+		 tc = table.getColumnModel().getColumn(15);
+		 tc.setPreferredWidth(100);
+		 tc = table.getColumnModel().getColumn(17);
+		 tc.setPreferredWidth(130);
+		 tc = table.getColumnModel().getColumn(18);
+		 tc.setPreferredWidth(110);
+		 tc = table.getColumnModel().getColumn(19);
+		 tc.setPreferredWidth(130);
+		 
+	}
+	
+	public void updateTable() {
+		tableModel.updateModel();
+		tableModel.fireTableDataChanged();
+	}
+
+	public JTextField getTxt_id() {
+		return txt_id;
+	}
+
+	public void setTxt_id(JTextField txt_id) {
+		this.txt_id = txt_id;
+	}
+
+	public JTextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public JTextField getTxtApellidos() {
+		return txtApellidos;
+	}
+
+	public void setTxtApellidos(JTextField txtApellidos) {
+		this.txtApellidos = txtApellidos;
+	}
+
+	public JTextField getTxtDni() {
+		return txtDni;
+	}
+
+	public void setTxtDni(JTextField txtDni) {
+		this.txtDni = txtDni;
+	}
+
+	public JTextField getTxtCuitCuil() {
+		return txtCuitCuil;
+	}
+
+	public void setTxtCuitCuil(JTextField txtCuitCuil) {
+		this.txtCuitCuil = txtCuitCuil;
+	}
+
+	public JTextField getTxtFechaNac() {
+		return txtFechaNac;
+	}
+
+	public void setTxtFechaNac(JTextField txtFechaNac) {
+		this.txtFechaNac = txtFechaNac;
+	}
+
+	public JTextField getTxtEmail() {
+		return txtEmail;
+	}
+
+	public void setTxtEmail(JTextField txtEmail) {
+		this.txtEmail = txtEmail;
+	}
+
+	public JTextField getTxtTelefonoPersonal() {
+		return txtTelefonoPersonal;
+	}
+
+	public void setTxtTelefonoPersonal(JTextField txtTelefonoPersonal) {
+		this.txtTelefonoPersonal = txtTelefonoPersonal;
+	}
+
+	public JTextField getTxtTelefonoCelular() {
+		return txtTelefonoCelular;
+	}
+
+	public void setTxtTelefonoCelular(JTextField txtTelefonoCelular) {
+		this.txtTelefonoCelular = txtTelefonoCelular;
+	}
+
+	public JTextField getTxtTelefonoLaboral() {
+		return txtTelefonoLaboral;
+	}
+
+	public void setTxtTelefonoLaboral(JTextField txtTelefonoLaboral) {
+		this.txtTelefonoLaboral = txtTelefonoLaboral;
+	}
+
+	public JTextField getTxtDirCalle() {
+		return txtDirCalle;
+	}
+
+	public void setTxtDirCalle(JTextField txtDirCalle) {
+		this.txtDirCalle = txtDirCalle;
+	}
+
+	public JTextField getTxtDirAltura() {
+		return txtDirAltura;
+	}
+
+	public void setTxtDirAltura(JTextField txtDirAltura) {
+		this.txtDirAltura = txtDirAltura;
+	}
+
+	public JTextField getTxtDirCiudad() {
+		return txtDirCiudad;
+	}
+
+	public void setTxtDirCiudad(JTextField txtDirCiudad) {
+		this.txtDirCiudad = txtDirCiudad;
+	}
+
+	public JTextField getTxtDirCodPostal() {
+		return txtDirCodPostal;
+	}
+
+	public void setTxtDirCodPostal(JTextField txtDirCodPostal) {
+		this.txtDirCodPostal = txtDirCodPostal;
+	}
+
+	public JTextField getTxtDirPais() {
+		return txtDirPais;
+	}
+
+	public void setTxtDirPais(JTextField txtDirPais) {
+		this.txtDirPais = txtDirPais;
+	}
+
+	public JTextField getTxtDirProvincia() {
+		return txtDirProvincia;
+	}
+
+	public void setTxtDirProvincia(JTextField txtDirProvincia) {
+		this.txtDirProvincia = txtDirProvincia;
+	}
+
+	public JTextField getTxtNumero() {
+		return txtNumero;
+	}
+
+	public void setTxtNumero(JTextField txtNumero) {
+		this.txtNumero = txtNumero;
+	}
+
+	public JTextField getTxtAutoridadEmision() {
+		return txtAutoridadEmision;
+	}
+
+	public void setTxtAutoridadEmision(JTextField txtAutoridadEmision) {
+		this.txtAutoridadEmision = txtAutoridadEmision;
+	}
+
+	public JTextField getTxtFechaEmision() {
+		return txtFechaEmision;
+	}
+
+	public void setTxtFechaEmision(JTextField txtFechaEmision) {
+		this.txtFechaEmision = txtFechaEmision;
+	}
+
+	public JTextField getTxtFechaVencimiento() {
+		return txtFechaVencimiento;
+	}
+
+	public void setTxtFechaVencimiento(JTextField txtFechaVencimiento) {
+		this.txtFechaVencimiento = txtFechaVencimiento;
+	}
+
+	public JTextField getTxtPais_pasaporte() {
+		return txtPais_pasaporte;
+	}
+
+	public void setTxtPais_pasaporte(JTextField txtPais_pasaporte) {
+		this.txtPais_pasaporte = txtPais_pasaporte;
+	}
+
+
 }

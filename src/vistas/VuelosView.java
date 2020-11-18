@@ -184,9 +184,7 @@ public class VuelosView extends JFrame {
 		contentPane.add(panelInferior);
 	}
 	
-	//TODO: Arreglar tamaño de la tabla
 	private void initTable(/*VuelosDAO dao*/) {
-		//TODO: Logica de la tabla
 		 this.tableModel = new VuelosTableModel(/*dao*/);
 		 this.tableModel.updateModel();
 		 this.table = new JTable(tableModel);
