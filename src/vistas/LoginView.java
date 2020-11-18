@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
+import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -11,8 +13,6 @@ import javax.swing.JButton;
 
 public class LoginView extends JFrame {
 
-	private static final long serialVersionUID = 1L;
-	
 	private JPanel contentPane;
 	private JButton btnIngresar;
 	private JLabel lblTitulo;
@@ -21,10 +21,28 @@ public class LoginView extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginView frame = new LoginView();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 	public LoginView() {
+		initComponents();
+	}
+	
+	private void initComponents() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 528, 446);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -60,14 +78,6 @@ public class LoginView extends JFrame {
 		btnIngresar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnIngresar.setBounds(177, 329, 150, 40);
 		contentPane.add(btnIngresar);
-	}
-
-	public JPanel getContentPane() {
-		return contentPane;
-	}
-
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
 	}
 
 	public JButton getBtnIngresar() {

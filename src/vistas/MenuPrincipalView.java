@@ -62,14 +62,6 @@ public class MenuPrincipalView extends JFrame {
 		lblTitulo.setBounds(51, 26, 137, 32);
 		contentPane.add(lblTitulo);
 	}
-	
-	public JPanel getContentPane() {
-		return contentPane;
-	}
-
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
-	}
 
 	public JButton getBtnVuelos() {
 		return btnVuelos;
