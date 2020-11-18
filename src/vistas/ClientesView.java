@@ -50,6 +50,7 @@ public class ClientesView extends JFrame {
 				}
 			}
 		});
+		
 	}
 
 	/**

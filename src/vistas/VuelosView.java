@@ -11,11 +11,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 
 import tableModels.VuelosTableModel;
-import java.awt.Component;
-import java.awt.Dimension;
-import javax.swing.table.DefaultTableModel;
 
 public class VuelosView extends JFrame {
 
@@ -56,7 +56,7 @@ public class VuelosView extends JFrame {
 	private void initComponents() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 600);
+		setBounds(100, 100, 739, 598);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -85,7 +85,7 @@ public class VuelosView extends JFrame {
 		
 		JLabel lblFechaLlegada = new JLabel("Fecha llegada:");
 		lblFechaLlegada.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFechaLlegada.setBounds(10, 184, 122, 14);
+		lblFechaLlegada.setBounds(10, 184, 122, 19);
 		contentPane.add(lblFechaLlegada);
 		
 		txt_id = new JTextField();
@@ -130,7 +130,7 @@ public class VuelosView extends JFrame {
 		
 		JLabel lblAeropuertoLlegada = new JLabel("Aeropuerto llegada:");
 		lblAeropuertoLlegada.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblAeropuertoLlegada.setBounds(393, 159, 142, 14);
+		lblAeropuertoLlegada.setBounds(393, 159, 142, 20);
 		contentPane.add(lblAeropuertoLlegada);
 		
 		txtTiempo = new JTextField();
@@ -155,7 +155,7 @@ public class VuelosView extends JFrame {
 		
 		JLabel lblAeropuertoSalida = new JLabel("Aeropuerto salida:");
 		lblAeropuertoSalida.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblAeropuertoSalida.setBounds(393, 134, 142, 14);
+		lblAeropuertoSalida.setBounds(393, 134, 142, 19);
 		contentPane.add(lblAeropuertoSalida);
 		
 		JButton btnIngresar = new JButton("Insertar");
@@ -179,7 +179,8 @@ public class VuelosView extends JFrame {
 		contentPane.add(btnSeleccionar);
 		
 		panelInferior = new JPanel();
-		panelInferior.setBounds(0, 285, 746, 288);
+		panelInferior.setBounds(0, 285, 735, 288);
+		panelInferior.setLayout(null);
 		contentPane.add(panelInferior);
 	}
 	
@@ -189,9 +190,37 @@ public class VuelosView extends JFrame {
 		 this.tableModel = new VuelosTableModel(/*dao*/);
 		 this.tableModel.updateModel();
 		 this.table = new JTable(tableModel);
+		 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		 headers();
 		 this.scrollPane = new JScrollPane(table);
-		 this.scrollPane.setBounds(0, 0, 746, 288);
+		 this.scrollPane.setBounds(0, 0, 735, 432);
 		 panelInferior.add(scrollPane);
+	}
+	
+	private void headers() {
+		//Acomodo los headers
+		 JTableHeader th = table.getTableHeader();
+		 ((DefaultTableCellRenderer)th.getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+		 
+		 TableColumn tc = table.getColumnModel().getColumn(0);
+		 tc.setPreferredWidth(70);
+		 tc = table.getColumnModel().getColumn(1);
+		 tc.setPreferredWidth(80);
+		 tc = table.getColumnModel().getColumn(2);
+		 tc.setPreferredWidth(140);
+		 tc = table.getColumnModel().getColumn(3);
+		 tc.setPreferredWidth(110);
+		 tc = table.getColumnModel().getColumn(4);
+		 tc.setPreferredWidth(110);
+		 tc = table.getColumnModel().getColumn(5);
+		 tc.setPreferredWidth(70);
+		 tc = table.getColumnModel().getColumn(6);
+		 tc.setPreferredWidth(90);
+		 tc = table.getColumnModel().getColumn(7);
+		 tc.setPreferredWidth(150);
+		 tc = table.getColumnModel().getColumn(8);
+		 tc.setPreferredWidth(160);
+		 
 	}
 	
 	public void updateTable() {
