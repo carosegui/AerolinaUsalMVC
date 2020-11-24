@@ -1,4 +1,4 @@
-package vistas;
+package vistas.tables;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

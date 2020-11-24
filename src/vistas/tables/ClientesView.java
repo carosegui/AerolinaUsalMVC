@@ -1,4 +1,4 @@
-package vistas;
+package vistas.tables;
 
 import java.awt.EventQueue;
 import java.awt.Font;
