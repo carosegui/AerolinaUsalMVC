@@ -11,6 +11,7 @@ public class LoginController implements ActionListener{
 	
 	public LoginController(LoginView view) {
 		this.view = view;
+		view.setVisible(true);
 	}
 
 	@Override

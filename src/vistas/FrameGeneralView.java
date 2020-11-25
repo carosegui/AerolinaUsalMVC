@@ -10,15 +10,28 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import vistas.forms.ClientesFormView;
+import vistas.forms.LineasAereasFormView;
 import vistas.forms.VuelosFormView;
+import vistas.tables.ClientesTableView;
+import vistas.tables.LineasAereasTableView;
 import vistas.tables.VuelosTableView;
 
 public class FrameGeneralView extends JFrame {
 
 	//Panels
 	private JPanel contentPane;
+	//Login
+	private JPanel loginPanel;
+	//Vuelos
 	private JPanel vuelosFormPanel;
 	private JPanel vuelosTablePanel;
+	//Clientes
+	private JPanel clientesTablePanel;
+	private JPanel clientesFormPanel;
+	//Lineas Aereas
+	private JPanel lineasAereasTablePanel;
+	private JPanel lineasAereasFormPanel;
 	
 	//Menu Bar
 	private JMenuBar menuBar;
@@ -62,7 +75,7 @@ public class FrameGeneralView extends JFrame {
 		initMenuBar();
 		
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
+		contentPane.setBorder(new EmptyBorder(10, 0, 0, 0));
 		contentPane.setLayout(new CardLayout(0, 0));
 		initPanels();
 		setContentPane(contentPane);
@@ -87,11 +100,26 @@ public class FrameGeneralView extends JFrame {
 	}
 	
 	private void initPanels() {
+		loginPanel = new LoginView();
+		contentPane.add(loginPanel, "loginPanel");
+		
 		vuelosTablePanel = new VuelosTableView();
 		contentPane.add(vuelosTablePanel, "vuelosTablePanel");
 		
 		vuelosFormPanel = new VuelosFormView();
 		contentPane.add(vuelosFormPanel, "vuelosFormPanel");
+		
+		clientesTablePanel = new ClientesTableView();
+		contentPane.add(clientesTablePanel, "clientesTablePanel");
+		
+		clientesFormPanel = new ClientesFormView();
+		contentPane.add(clientesFormPanel, "clientesFormPanel");	
+
+		lineasAereasTablePanel = new LineasAereasTableView();
+		contentPane.add(lineasAereasTablePanel, "lineasAereasTablePanel");		
+		
+		lineasAereasFormPanel = new LineasAereasFormView();
+		contentPane.add(lineasAereasFormPanel, "lineasAereasFormPanel");		
 	}
 	
 	//Metodos eventos --------------

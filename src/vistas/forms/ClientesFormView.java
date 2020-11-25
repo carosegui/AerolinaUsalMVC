@@ -1,18 +1,14 @@
 package vistas.forms;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.Insets;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 public class ClientesFormView extends JPanel {
@@ -90,10 +86,10 @@ public class ClientesFormView extends JPanel {
 		JPanel panelBotones = new JPanel();
 		
 		btnOk = new JButton("OK");
-		btnOk.setPreferredSize(new Dimension(90, 23));
+		btnOk.setPreferredSize(new Dimension(115, 23));
 		
 		btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setPreferredSize(new Dimension(90, 23));
+		btnCancelar.setPreferredSize(new Dimension(115, 23));
 		
 		panelBotones.add(btnOk);
 		panelBotones.add(btnCancelar);
