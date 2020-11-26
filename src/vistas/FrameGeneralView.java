@@ -125,7 +125,7 @@ public class FrameGeneralView extends JFrame {
 	//Metodos eventos --------------
 	public void btnVuelos() {
 		cardLayout = (CardLayout) contentPane.getLayout();
-		cardLayout.show(contentPane, "vuelosTablePanel");
+		cardLayout.show(contentPane, "loginPanel");
 		setBounds(new Rectangle(vuelosTablePanel.getPreferredSize()));
 		setLocationRelativeTo(null);
 	}
@@ -153,6 +153,7 @@ public class FrameGeneralView extends JFrame {
 	
 	//Metodos panel Login
 	public void setTxtLblMensajeErrorLogin(String mensaje) {
+		this.loginPanel.gettTxtLblMensajeError().setVisible(true);;
 		this.loginPanel.setTxtLblMensajeError(mensaje);
 	}
 	
@@ -162,6 +163,10 @@ public class FrameGeneralView extends JFrame {
 	
 	public String getTextContrasenaLogin() {
 		return this.loginPanel.getTextContrasena();
+	}
+	
+	public JButton getBotonlogn() {
+		return this.loginPanel.getBtnIngresar();
 	}
 	
 	//Botones menu bar
