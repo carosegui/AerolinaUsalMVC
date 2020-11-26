@@ -87,48 +87,35 @@ public class LoginView extends JPanel {
 		return btnIngresar;
 	}
 
-	public void setBtnIngresar(JButton btnIngresar) {
-		this.btnIngresar = btnIngresar;
-	}
-
 	public JLabel getLblTitulo() {
 		return lblTitulo;
-	}
-
-	public void setLblTitulo(JLabel lblTitulo) {
-		this.lblTitulo = lblTitulo;
 	}
 
 	public JLabel getLblUsuario() {
 		return lblUsuario;
 	}
 
-	public void setLblUsuario(JLabel lblUsuario) {
-		this.lblUsuario = lblUsuario;
-	}
-
 	public JLabel getLblContrasena() {
 		return lblContrasena;
-	}
-
-	public void setLblContrasena(JLabel lblContrasena) {
-		this.lblContrasena = lblContrasena;
 	}
 
 	public JTextField getTxtUsuario() {
 		return txtUsuario;
 	}
 
-	public void setTxtUsuario(JTextField txtUsuario) {
-		this.txtUsuario = txtUsuario;
-	}
-
 	public JPasswordField getTxtContrasena() {
 		return txtContrasena;
 	}
 
-	public void setTxtContrasena(JPasswordField txtContrasena) {
-		this.txtContrasena = txtContrasena;
+	public void setTxtLblMensajeError(String mensaje) {
+		this.lblMensajeError.setText(mensaje);
 	}
 	
+	public String getTextUsuario() {
+		return txtUsuario.getText();
+	}
+	
+	public String getTextContrasena() {
+		return txtContrasena.getSelectedText();
+	}
 }

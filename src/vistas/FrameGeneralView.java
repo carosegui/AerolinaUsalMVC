@@ -22,7 +22,7 @@ public class FrameGeneralView extends JFrame {
 	//Panels
 	private JPanel contentPane;
 	//Login
-	private JPanel loginPanel;
+	private LoginView loginPanel;
 	//Vuelos
 	private JPanel vuelosFormPanel;
 	private JPanel vuelosTablePanel;
@@ -130,6 +130,41 @@ public class FrameGeneralView extends JFrame {
 		setLocationRelativeTo(null);
 	}
 	
+	public void btnClientes() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "clientesTablePanel");
+		setBounds(new Rectangle(clientesTablePanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
+	public void btnLineasAereas() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "lineasAereasTablePanel");
+		setBounds(new Rectangle(lineasAereasTablePanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
+//	public void btnVentas() {
+//		cardLayout = (CardLayout) contentPane.getLayout();
+//		cardLayout.show(contentPane, "vuelosTablePanel");
+//		setBounds(new Rectangle(vuelosTablePanel.getPreferredSize()));
+//		setLocationRelativeTo(null);
+//	}
+	
+	//Metodos panel Login
+	public void setTxtLblMensajeErrorLogin(String mensaje) {
+		this.loginPanel.setTxtLblMensajeError(mensaje);
+	}
+	
+	public String getTextUsuarioLogin() {
+		return this.loginPanel.getTextUsuario();
+	}
+	
+	public String getTextContrasenaLogin() {
+		return this.loginPanel.getTextContrasena();
+	}
+	
+	//Botones menu bar
 	public JButton getBtnClientes() {
 		return btnClientes;
 	}

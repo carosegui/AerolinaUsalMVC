@@ -66,7 +66,7 @@ public class LineasAereasTableView extends JPanel {
 		this.setLayout(null);
 		
 		initComponents();
-		initTable();
+//		initTable();
 	}
 	
 	private void initComponents() {
