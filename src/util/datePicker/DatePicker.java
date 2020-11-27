@@ -23,7 +23,7 @@ public class DatePicker {
 		this.datePicker = new JDatePickerImpl(datePanel, new CustomDateFormat());
 	}
 	
-	public JDatePickerImpl getDatePicker() {
-		return datePicker;
+	public static JDatePickerImpl getDatePicker() {
+		return new DatePicker().datePicker;
 	}
 }

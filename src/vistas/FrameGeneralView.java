@@ -24,14 +24,14 @@ public class FrameGeneralView extends JFrame {
 	//Login
 	private LoginView loginPanel;
 	//Vuelos
-	private JPanel vuelosFormPanel;
+	private VuelosFormView vuelosFormPanel;
 	private JPanel vuelosTablePanel;
 	//Clientes
 	private JPanel clientesTablePanel;
-	private JPanel clientesFormPanel;
+	private ClientesFormView clientesFormPanel;
 	//Lineas Aereas
 	private JPanel lineasAereasTablePanel;
-	private JPanel lineasAereasFormPanel;
+	private LineasAereasFormView lineasAereasFormPanel;
 	
 	//Menu Bar
 	private JMenuBar menuBar;
@@ -122,7 +122,7 @@ public class FrameGeneralView extends JFrame {
 		contentPane.add(lineasAereasFormPanel, "lineasAereasFormPanel");		
 	}
 	
-	//Metodos eventos --------------
+	//Metodos eventos --------------------------------------------------------------------
 	public void btnVuelos() {
 		cardLayout = (CardLayout) contentPane.getLayout();
 		cardLayout.show(contentPane, "loginPanel");
@@ -151,25 +151,164 @@ public class FrameGeneralView extends JFrame {
 //		setLocationRelativeTo(null);
 //	}
 	
-	//Metodos panel Login
+	//Metodos panel Login --------------------------------------------------------------------
 	public void setTxtLblMensajeErrorLogin(String mensaje) {
 		this.loginPanel.gettTxtLblMensajeError().setVisible(true);;
 		this.loginPanel.setTxtLblMensajeError(mensaje);
 	}
 	
-	public String getTextUsuarioLogin() {
+	public String getTextUsuario_Login() {
 		return this.loginPanel.getTextUsuario();
 	}
 	
-	public String getTextContrasenaLogin() {
+	public String getTextContrasena_Login() {
 		return this.loginPanel.getTextContrasena();
 	}
 	
-	public JButton getBotonlogn() {
+	public JButton getBtnIngresar_Login() {
 		return this.loginPanel.getBtnIngresar();
 	}
 	
-	//Botones menu bar
+	//Metodos panel Vuelos Form --------------------------------------------------------------------
+	public String getTextTxtNumeroVuelo_Vuelos() {
+		return vuelosFormPanel.getTextTxtNumero();
+	}
+	
+	public String getTextTxtCantAsientos_Vuelos() {
+		return vuelosFormPanel.getTextTxtCantAsientos();
+	}
+	
+	public String getTextTxtTiempo_Vuelos() {
+		return vuelosFormPanel.getTextTxtTiempo();
+	}
+	
+	public String getTextTxtAerolinea_Vuelos() {
+		return vuelosFormPanel.getTextTxtAerolinea();
+	}
+	
+	public String getTextTxtAeropuertoLlegada_Vuelos() {
+		return vuelosFormPanel.getTextTxtAeropuertoLlegada();
+	}
+	
+	public String getTextTxtAeropuertoSalida_Vuelos() {
+		return vuelosFormPanel.getTextTxtAeropuertoSalida();
+	}
+	
+	public Object getDateFechaSalida_Vuelos() {
+		return vuelosFormPanel.getDateFechaSalida();
+	}
+	
+	public Object getDateFechaLlegada_Vuelos() {
+		return vuelosFormPanel.getDateFechaLlegada();
+	}
+	
+	//Metodos panel Clientes Form --------------------------------------------------------------------
+	public String getTextTxtNombre_ClientesForm() {
+		return clientesFormPanel.getTextTxtNombre();
+	}
+	
+	public String getTextTxtApellidos_ClientesForm() {
+		return clientesFormPanel.getTextTxtApellidos();
+	}
+	
+	public String getTextTxtDni_ClientesForm() {
+		return clientesFormPanel.getTextTxtDni();
+	}
+	
+	public String getTextTxtCuitCuil_ClientesForm() {
+		return clientesFormPanel.getTextTxtCuitCuil();
+	}
+	
+	public String getTextTxtEmail_ClientesForm() {
+		return clientesFormPanel.getTextTxtEmail();
+	}
+	
+	public String getTextTxtTelefonoPersonal_ClientesForm() {
+		return clientesFormPanel.getTextTxtTelefonoPersonal();
+	}
+	
+	public String getTextTxtTelefonoCelular_ClientesForm() {
+		return clientesFormPanel.getTextTxtTelefonoCelular();
+	}
+	
+	public String getTextTxtTelefonoLaboral_ClientesForm() {
+		return clientesFormPanel.getTextTxtTelefonoLaboral();
+	}
+	
+	public String getTextTxtDirCalle_ClientesForm() {
+		return clientesFormPanel.getTextTxtDirCalle();
+	}
+	
+	public String getTextTxtDirAltura_ClientesForm() {
+		return clientesFormPanel.getTextTxtDirAltura();
+	}
+	
+	public String getTextTxtDirCiudad_ClientesForm() {
+		return clientesFormPanel.getTextTxtDirCiudad();
+	}
+	
+	public String getTextTxtDirCodPostal_ClientesForm() {
+		return clientesFormPanel.getTextTxtDirCodPostal();
+	}
+	
+	public String getTextTxtDirPais_ClientesForm() {
+		return clientesFormPanel.getTextTxtDirPais();
+	}
+	
+	public String getTextTxtDirProvincia_ClientesForm() {
+		return clientesFormPanel.getTextTxtDirProvincia();
+	}
+	
+	public String getTextTxtNumero_ClientesForm() {
+		return clientesFormPanel.getTextTxtNumero();
+	}
+	
+	public String getTextTxtAutoridadEmision_ClientesForm() {
+		return clientesFormPanel.getTextTxtAutoridadEmision();
+	}
+	
+	public String getTextTxtPais_pasaporte_ClientesForm() {
+		return clientesFormPanel.getTextTxtPais_pasaporte();
+	}
+	
+	public Object getDateFechaNac_ClientesForm() {
+		return clientesFormPanel.getDateFechaNac();
+	}
+	
+	public Object getDateFechaEmision_ClientesForm() {
+		return clientesFormPanel.getDateFechaEmision();
+	}
+	
+	public Object getDateFechaVencimiento_ClientesForm() {
+		return clientesFormPanel.getDateFechaVencimiento();
+	}
+	
+	public JButton getBtnOk_ClientesForm() {
+		return clientesFormPanel.getBtnOk();
+	}
+	
+	public JButton getBtnCancelar_ClientesForm() {
+		return clientesFormPanel.getBtnCancelar();
+	}
+	
+	//Metodos Lineas Aereas Form --------------------------------------------------------------------
+	public String getTextTxtNombre_LineasAereas() {
+		return lineasAereasFormPanel.getTextTxtNombre();
+	}
+	
+	public String getTextTxtAlianza_LineasAereas() {
+		return lineasAereasFormPanel.getTextTxtAlianza();
+	}
+	
+	public JButton getBtnOk_LineasAereas() {
+		return lineasAereasFormPanel.getBtnOk();
+	}
+	
+	public JButton getBtnCancelar_LineasAereas() {
+		return lineasAereasFormPanel.getBtnCancelar();
+	}
+	
+	//Botones menu bar --------------------------------------------------------------------
 	public JButton getBtnClientes() {
 		return btnClientes;
 	}

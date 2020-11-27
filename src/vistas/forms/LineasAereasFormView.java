@@ -84,6 +84,21 @@ public class LineasAereasFormView extends JPanel {
 		panelCentral.add(txtAlianza);
 		
 		this.add(panelCentral, BorderLayout.CENTER);
+	}	
+	
+	public String getTextTxtNombre() {
+		return txtNombre.getText();
 	}
-
+	
+	public String getTextTxtAlianza() {
+		return txtAlianza.getText();
+	}
+	
+	public JButton getBtnOk() {
+		return btnOk;
+	}
+	
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
 }

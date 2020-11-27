@@ -9,6 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.jdatepicker.impl.JDatePickerImpl;
+
+import util.datePicker.DatePicker;
+
 public class VuelosFormView extends JPanel {
 	
 	private JLabel lblTitle;
@@ -23,12 +27,15 @@ public class VuelosFormView extends JPanel {
 	
 	private JTextField txtNumero;
 	private JTextField txtCantAsientos;
-	private JTextField txtFechaSalida;
-	private JTextField txtFechaLlegada;
+//	private JTextField txtFechaSalida;
+//	private JTextField txtFechaLlegada;
 	private JTextField txtTiempo;
 	private JTextField txtAerolinea;
 	private JTextField txtAeropuertoLlegada;
 	private JTextField txtAeropuertoSalida;
+	
+	private JDatePickerImpl dateFechaSalida;
+	private JDatePickerImpl dateFechaLlegada;
 	
 	private JButton btnOk;
 	private JButton btnCancelar;
@@ -85,11 +92,11 @@ public class VuelosFormView extends JPanel {
 		lblFechaSalida.setPreferredSize(new Dimension(135, 14));
 		lblFechaSalida.setFont(f);
 		
-		txtFechaSalida = new JTextField();
+		dateFechaSalida = DatePicker.getDatePicker();
 		
 		hb3.add(lblFechaSalida);
 		hb3.add(Box.createHorizontalStrut(15));
-		hb3.add(txtFechaSalida);
+		hb3.add(dateFechaSalida);
 		
 		//Row 5 ------
 		Box hb4 = Box.createHorizontalBox();
@@ -98,11 +105,11 @@ public class VuelosFormView extends JPanel {
 		lblFechaLlegada.setPreferredSize(new Dimension(135, 14));
 		lblFechaLlegada.setFont(f);
 		
-		txtFechaLlegada = new JTextField();
+		dateFechaLlegada = DatePicker.getDatePicker();
 		
 		hb4.add(lblFechaLlegada);
 		hb4.add(Box.createHorizontalStrut(15));
-		hb4.add(txtFechaLlegada);
+		hb4.add(dateFechaLlegada);
 		
 		//Row 6 ------
 		Box hb5 = Box.createHorizontalBox();
@@ -195,5 +202,37 @@ public class VuelosFormView extends JPanel {
 		
 		this.add(vb);
 		
+	}	
+	
+	public String getTextTxtNumero() {
+		return txtNumero.getText();
+	}
+	
+	public String getTextTxtCantAsientos() {
+		return txtCantAsientos.getText();
+	}
+	
+	public String getTextTxtTiempo() {
+		return txtTiempo.getText();
+	}
+	
+	public String getTextTxtAerolinea() {
+		return txtAerolinea.getText();
+	}
+	
+	public String getTextTxtAeropuertoLlegada() {
+		return txtAeropuertoLlegada.getText();
+	}
+	
+	public String getTextTxtAeropuertoSalida() {
+		return txtAeropuertoSalida.getText();
+	}
+	
+	public Object getDateFechaSalida() {
+		return dateFechaSalida.getModel().getValue();
+	}
+	
+	public Object getDateFechaLlegada() {
+		return dateFechaLlegada.getModel().getValue();
 	}
 }

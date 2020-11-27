@@ -11,6 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import org.jdatepicker.impl.JDatePickerImpl;
+
+import util.datePicker.DatePicker;
+
 public class ClientesFormView extends JPanel {
 	
 	private JPanel panelInferior;
@@ -44,7 +48,7 @@ public class ClientesFormView extends JPanel {
 	private JTextField txtApellidos;
 	private JTextField txtDni;
 	private JTextField txtCuitCuil;
-	private JTextField txtFechaNac;
+//	private JTextField txtFechaNac;
 	private JTextField txtEmail;
 	private JTextField txtTelefonoPersonal;
 	private JTextField txtTelefonoCelular;
@@ -57,9 +61,13 @@ public class ClientesFormView extends JPanel {
 	private JTextField txtDirProvincia;
 	private JTextField txtNumero;
 	private JTextField txtAutoridadEmision;
-	private JTextField txtFechaEmision;
-	private JTextField txtFechaVencimiento;
+//	private JTextField txtFechaEmision;
+//	private JTextField txtFechaVencimiento;
 	private JTextField txtPais_pasaporte;
+	
+	private JDatePickerImpl dateFechaNac;
+	private JDatePickerImpl dateFechaEmision;
+	private JDatePickerImpl dateFechaVencimiento;
 	
 	private JButton btnOk;
 	private JButton btnCancelar;
@@ -146,11 +154,10 @@ public class ClientesFormView extends JPanel {
 		lblFechaNac = new JLabel("Fecha nacimiento:", JLabel.TRAILING);
 		lblFechaNac.setFont(f);
 		
-		txtFechaNac = new JTextField();
-		txtFechaNac.setFont(f);
+		dateFechaNac = DatePicker.getDatePicker();
 		
 		panelInferior.add(lblFechaNac);
-		panelInferior.add(txtFechaNac);
+		panelInferior.add(dateFechaNac);
 		
 		//Row 6 ------
 		lblEmail = new JLabel("Email:", JLabel.TRAILING);
@@ -303,21 +310,19 @@ public class ClientesFormView extends JPanel {
 		lblFechaEmision = new JLabel("Fecha emisión:", JLabel.TRAILING);
 		lblFechaEmision.setFont(f);
 		
-		txtFechaEmision = new JTextField();
-		txtFechaEmision.setFont(f);
+		dateFechaEmision = DatePicker.getDatePicker();
 		
 		panelInferior.add(lblFechaEmision);
-		panelInferior.add(txtFechaEmision);
+		panelInferior.add(dateFechaEmision);
 	
 		//Row 22 ------
 		lblFechaVencimiento = new JLabel("Fecha vencimiento:", JLabel.TRAILING);
 		lblFechaVencimiento.setFont(f);
 		
-		txtFechaVencimiento = new JTextField();
-		txtFechaVencimiento.setFont(f);
+		dateFechaVencimiento = DatePicker.getDatePicker();
 		
 		panelInferior.add(lblFechaVencimiento);
-		panelInferior.add(txtFechaVencimiento);
+		panelInferior.add(dateFechaVencimiento);
 	
 		//Row 23 ------
 		lblPais_pasaporte = new JLabel("País:", JLabel.TRAILING);
@@ -330,7 +335,93 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(txtPais_pasaporte);
 	
 		this.add(panelInferior, BorderLayout.CENTER);
-		
+	}	
+	
+	public String getTextTxtNombre() {
+		return txtNombre.getText();
 	}
-
+	
+	public String getTextTxtApellidos() {
+		return txtApellidos.getText();
+	}
+	
+	public String getTextTxtDni() {
+		return txtDni.getText();
+	}
+	
+	public String getTextTxtCuitCuil() {
+		return txtCuitCuil.getText();
+	}
+	
+	public String getTextTxtEmail() {
+		return txtEmail.getText();
+	}
+	
+	public String getTextTxtTelefonoPersonal() {
+		return txtTelefonoPersonal.getText();
+	}
+	
+	public String getTextTxtTelefonoCelular() {
+		return txtTelefonoCelular.getText();
+	}
+	
+	public String getTextTxtTelefonoLaboral() {
+		return txtTelefonoLaboral.getText();
+	}
+	
+	public String getTextTxtDirCalle() {
+		return txtDirCalle.getText();
+	}
+	
+	public String getTextTxtDirAltura() {
+		return txtDirAltura.getText();
+	}
+	
+	public String getTextTxtDirCiudad() {
+		return txtDirCiudad.getText();
+	}
+	
+	public String getTextTxtDirCodPostal() {
+		return txtDirCodPostal.getText();
+	}
+	
+	public String getTextTxtDirPais() {
+		return txtDirPais.getText();
+	}
+	
+	public String getTextTxtDirProvincia() {
+		return txtDirProvincia.getText();
+	}
+	
+	public String getTextTxtNumero() {
+		return txtNumero.getText();
+	}
+	
+	public String getTextTxtAutoridadEmision() {
+		return txtAutoridadEmision.getText();
+	}
+	
+	public String getTextTxtPais_pasaporte() {
+		return txtPais_pasaporte.getText();
+	}
+	
+	public Object getDateFechaNac() {
+		return dateFechaNac.getModel().getValue();
+	}
+	
+	public Object getDateFechaEmision() {
+		return dateFechaEmision.getModel().getValue();
+	}
+	
+	public Object getDateFechaVencimiento() {
+		return dateFechaVencimiento.getModel().getValue();
+	}
+	
+	public JButton getBtnOk() {
+		return btnOk;
+	}
+	
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
 }
