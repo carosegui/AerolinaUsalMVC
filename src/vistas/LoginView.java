@@ -75,6 +75,7 @@ public class LoginView extends JPanel {
 		lblMensajeError.setForeground(Color.RED);
 		lblMensajeError.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblMensajeError.setBounds(0, 274, 528, 19);
+		lblMensajeError.setVisible(false);
 		this.add(lblMensajeError);
 		
 		btnIngresar = new JButton("Ingresar");
@@ -111,11 +112,15 @@ public class LoginView extends JPanel {
 		this.lblMensajeError.setText(mensaje);
 	}
 	
+	public JLabel gettTxtLblMensajeError() {
+		return lblMensajeError;
+	}
+	
 	public String getTextUsuario() {
 		return txtUsuario.getText();
 	}
 	
 	public String getTextContrasena() {
-		return txtContrasena.getSelectedText();
+		return txtContrasena.getText();
 	}
 }
