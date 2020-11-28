@@ -86,6 +86,13 @@ public class LineasAereasFormView extends JPanel {
 		this.add(panelCentral, BorderLayout.CENTER);
 	}	
 	
+	//Usar este metodo cuando se utiliza el boton SELECCIONAR
+	//Llena los JTextFields con los datos correspondientes
+	public void setSelectedRow(String data[]) {
+		txtNombre.setText(data[0]);
+		txtAlianza.setText(data[1]);
+	}
+	
 	public String getTextTxtNombre() {
 		return txtNombre.getText();
 	}

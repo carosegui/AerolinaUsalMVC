@@ -25,12 +25,12 @@ public class FrameGeneralView extends JFrame {
 	private LoginView loginPanel;
 	//Vuelos
 	private VuelosFormView vuelosFormPanel;
-	private JPanel vuelosTablePanel;
+	private VuelosTableView vuelosTablePanel;
 	//Clientes
 	private JPanel clientesTablePanel;
 	private ClientesFormView clientesFormPanel;
 	//Lineas Aereas
-	private JPanel lineasAereasTablePanel;
+	private LineasAereasTableView lineasAereasTablePanel;
 	private LineasAereasFormView lineasAereasFormPanel;
 	
 	//Menu Bar
@@ -202,6 +202,14 @@ public class FrameGeneralView extends JFrame {
 		return vuelosFormPanel.getDateFechaLlegada();
 	}
 	
+	public Object[] getSelectedRow_Vuelos() {
+		return this.vuelosTablePanel.getSelectedRow();
+	}
+	
+	public void setSelectedRow_Vuelos(Object data[]) {
+		this.vuelosFormPanel.setSelectedRow(data);
+	}
+	
 	//Metodos panel Clientes Form --------------------------------------------------------------------
 	public String getTextTxtNombre_ClientesForm() {
 		return clientesFormPanel.getTextTxtNombre();
@@ -308,6 +316,13 @@ public class FrameGeneralView extends JFrame {
 		return lineasAereasFormPanel.getBtnCancelar();
 	}
 	
+	public String[] getSelectedRow_LineasAereas() {
+		return this.lineasAereasTablePanel.getSelectedRow();
+	}
+	
+	public void setSelectedRow_LineasAeereas(String data[]) {
+		this.lineasAereasFormPanel.setSelectedRow(data);
+	}
 	//Botones menu bar --------------------------------------------------------------------
 	public JButton getBtnClientes() {
 		return btnClientes;

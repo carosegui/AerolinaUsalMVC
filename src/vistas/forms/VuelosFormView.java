@@ -204,6 +204,19 @@ public class VuelosFormView extends JPanel {
 		
 	}	
 	
+	//Usar este metodo cuando se utiliza el boton SELECCIONAR
+	//Llena los JTextFields con los datos correspondientes
+	public void setSelectedRow(Object data[]) {
+		txtNumero.setText((String) data[0]);
+		txtCantAsientos.setText((String) data[1]);
+//		dateFechaSalida.getModel().setValue(data[2]);	 TODO:Arreglar cast de fechas
+//		dateFechaLlegada.getModel().setValue(data[3]);
+		txtTiempo.setText((String) data[4]);
+		txtAerolinea.setText((String) data[5]);
+		txtAeropuertoSalida.setText((String) data[6]);
+		txtAeropuertoLlegada.setText((String) data[7]);
+	}
+	
 	public String getTextTxtNumero() {
 		return txtNumero.getText();
 	}

@@ -20,22 +20,20 @@ public class VuelosTableModel extends AbstractTableModel{
 	public String getColumnName(int column) {
 		switch (column) {
          	case 0:
-         		return "ID Vuelo";
-         	case 1:
          		return "NUMERO";
-         	case 2:
+         	case 1:
          		return "CANTIDAD ASIENTOS";
-         	case 3:
+         	case 2:
          		return "FECHA SALIDA";
-         	case 4:
+         	case 3:
          		return "FECHA LLEGADA";
-         	case 5:
+         	case 4:
          		return "TIEMPO";
-         	case 6: 
+         	case 5: 
          		return "AEROLINEA";
-         	case 7:
+         	case 6:
          		return "AEROPUERTO SALIDA";
-         	case 8:
+         	case 7:
          		return "AEROPUERTO LLEGADA";
          	default:
          		return "[no]";

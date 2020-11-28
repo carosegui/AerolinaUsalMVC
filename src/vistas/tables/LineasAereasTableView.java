@@ -1,29 +1,17 @@
 package vistas.tables;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
-
-import tableModels.ClientesTableModel;
-
-import javax.swing.border.BevelBorder;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import java.awt.FlowLayout;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+
+import tableModels.LineasAereasTableModel;
 
 public class LineasAereasTableView extends JPanel {
 	
@@ -37,7 +25,7 @@ public class LineasAereasTableView extends JPanel {
 	private JButton btnSeleccionar;
 	
 	private JTable table;
-//	private LienasAereasTableMoel tableModel;
+	private LineasAereasTableModel tableModel;
 	private JScrollPane scrollPane;
 	private JPanel panelTabla;
 
@@ -66,7 +54,7 @@ public class LineasAereasTableView extends JPanel {
 		this.setLayout(null);
 		
 		initComponents();
-//		initTable();
+		initTable();
 	}
 	
 	private void initComponents() {
@@ -108,14 +96,13 @@ public class LineasAereasTableView extends JPanel {
 	}
 	
 	private void initTable(/*ClientesDAO dao*/) {
-//		 tableModel = new ClientesTableModel(/*dao*/);
-//		 tableModel.updateModel();
-		 panelTabla.setLayout(null);
-//		 table = new JTable(tableModel);
+		 tableModel = new LineasAereasTableModel(/*dao*/);
+		 tableModel.updateModel();
+		 panelTabla.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		 table = new JTable(tableModel);
 		 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 //		 headers();
 		 scrollPane = new JScrollPane(table);
-		 scrollPane.setBounds(0, 0, 656, 348);
 		 panelTabla.add(scrollPane);
 	}
 	
@@ -140,7 +127,19 @@ public class LineasAereasTableView extends JPanel {
 //	}
 	
 	public void updateTable() {
-//		tableModel.updateModel();
-//		tableModel.fireTableDataChanged();
+		tableModel.updateModel();
+		tableModel.fireTableDataChanged();
+	}
+	
+	//Usar este metodo cuando se utilice el boton SELECCIONAR
+	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<String>
+	public String[] getSelectedRow() {
+		String[] data = new String [2];
+		int selectedRow = this.table.getSelectedRow();
+		
+		data[0] = (String) this.tableModel.getValueAt(selectedRow, 0);
+		data[1] = (String) this.tableModel.getValueAt(selectedRow, 1);
+		
+		return data;	
 	}
 }

@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
+import org.jdatepicker.impl.JDatePickerImpl;
+
 import tableModels.VuelosTableModel;
 
 public class VuelosTableView extends JPanel{
@@ -129,5 +131,21 @@ public class VuelosTableView extends JPanel{
 		tableModel.fireTableDataChanged();
 	}
 
-	
+	//Usar este metodo cuando se utilice el boton SELECCIONAR
+	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<String>
+	public Object[] getSelectedRow() {
+		Object data[] = new Object [8];
+		int selectedRow = this.table.getSelectedRow();
+		
+		data[0] = this.tableModel.getValueAt(selectedRow, 0);
+		data[1] = this.tableModel.getValueAt(selectedRow, 1);
+		data[2] = this.tableModel.getValueAt(selectedRow, 2);
+		data[3] = this.tableModel.getValueAt(selectedRow, 3);
+		data[4] = this.tableModel.getValueAt(selectedRow, 4);
+		data[5] = this.tableModel.getValueAt(selectedRow, 5);
+		data[6] = this.tableModel.getValueAt(selectedRow, 6);
+		data[7] = this.tableModel.getValueAt(selectedRow, 7);
+		
+		return data;
+	}
 }
