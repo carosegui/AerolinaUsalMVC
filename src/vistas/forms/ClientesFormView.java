@@ -335,7 +335,32 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(txtPais_pasaporte);
 	
 		this.add(panelInferior, BorderLayout.CENTER);
-	}	
+	}
+	
+	//Usar este metodo cuando se utiliza el boton SELECCIONAR
+	//Llena los JTextFields con los datos correspondientes
+	public void setSelectedRow(Object data[]) {
+		txtNombre.setText((String) data[0]);
+		txtApellidos.setText((String) data[1]);
+		txtDni.setText((String) data[2]);
+		txtCuitCuil.setText((String) data[3]);
+//		dateFechaNac.getModel().setValue(data[4]); 		//TODO: Arreglar fechas
+		txtEmail.setText((String) data[5]);
+		txtTelefonoPersonal.setText((String) data[6]);
+		txtTelefonoCelular.setText((String) data[7]);
+		txtTelefonoLaboral.setText((String) data[8]);
+		txtDirCalle.setText((String) data[9]);
+		txtDirAltura.setText((String) data[10]);
+		txtDirCiudad.setText((String) data[11]);
+		txtDirCodPostal.setText((String) data[12]);
+		txtDirPais.setText((String) data[13]);
+		txtDirProvincia.setText((String) data[14]);
+		txtNumero.setText((String) data[15]);
+		txtAutoridadEmision.setText((String) data[16]);
+//		dateFechaEmision.getModel().setValue(data[17]);
+//		dateFechaVencimiento.getModel().setValue(data[18]);
+		txtPais_pasaporte.setText((String) data[19]);
+	}
 	
 	public String getTextTxtNombre() {
 		return txtNombre.getText();

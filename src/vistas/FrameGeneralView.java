@@ -27,7 +27,7 @@ public class FrameGeneralView extends JFrame {
 	private VuelosFormView vuelosFormPanel;
 	private VuelosTableView vuelosTablePanel;
 	//Clientes
-	private JPanel clientesTablePanel;
+	private ClientesTableView clientesTablePanel;
 	private ClientesFormView clientesFormPanel;
 	//Lineas Aereas
 	private LineasAereasTableView lineasAereasTablePanel;
@@ -125,8 +125,15 @@ public class FrameGeneralView extends JFrame {
 	//Metodos eventos --------------------------------------------------------------------
 	public void btnVuelos() {
 		cardLayout = (CardLayout) contentPane.getLayout();
-		cardLayout.show(contentPane, "loginPanel");
+		cardLayout.show(contentPane, "vuelosTablePanel");
 		setBounds(new Rectangle(vuelosTablePanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
+	public void displayVuelosForm() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "vuelosFormPanel");
+		setBounds(new Rectangle(vuelosFormPanel.getPreferredSize()));
 		setLocationRelativeTo(null);
 	}
 	
@@ -137,10 +144,24 @@ public class FrameGeneralView extends JFrame {
 		setLocationRelativeTo(null);
 	}
 	
+	public void displayClientesForm() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "clientesFormPanel");
+		setBounds(new Rectangle(clientesFormPanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
 	public void btnLineasAereas() {
 		cardLayout = (CardLayout) contentPane.getLayout();
 		cardLayout.show(contentPane, "lineasAereasTablePanel");
 		setBounds(new Rectangle(lineasAereasTablePanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
+	public void displayLineasAereasForm() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "lineasAereasFormPanel");
+		setBounds(new Rectangle(lineasAereasFormPanel.getPreferredSize()));
 		setLocationRelativeTo(null);
 	}
 	
@@ -297,6 +318,14 @@ public class FrameGeneralView extends JFrame {
 	
 	public JButton getBtnCancelar_ClientesForm() {
 		return clientesFormPanel.getBtnCancelar();
+	}
+	
+	public Object[] getSelectedRow_Clientes() {
+		return this.clientesTablePanel.getSelectedRow();
+	}
+	
+	public void setSelectedRow_Clientes(String data[]) {
+		this.clientesFormPanel.setSelectedRow(data);
 	}
 	
 	//Metodos Lineas Aereas Form --------------------------------------------------------------------

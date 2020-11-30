@@ -14,7 +14,7 @@ public class LoginEventController implements ActionListener{
 		this.view = view;
 		System.out.println("CONSTRUCTOR");
 		this.logic = new LoginLogic(); 
-		view.getBotonlogn().addActionListener(this);
+		view.getBtnIngresar_Login().addActionListener(this);
 	}
 
 	
@@ -22,13 +22,13 @@ public class LoginEventController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
-		 if (e.getSource() == view.getBotonlogn()) {
+		 if (e.getSource() == view.getBtnIngresar_Login()) {
 			 
 	            try {
 	            
-	            		String user = view.getTextUsuarioLogin();
+	            		String user = view.getTextUsuario_Login();
 	            		System.out.println(user);
-		            	String clave = view.getTextContrasenaLogin();
+		            	String clave = view.getTextContrasena_Login();
 		            	System.out.println(clave);
 		            	
 		            	if(logic.verificarLogin(user, clave)) {

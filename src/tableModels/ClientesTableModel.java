@@ -19,46 +19,44 @@ public class ClientesTableModel extends AbstractTableModel{
 	public String getColumnName(int column) {
 		switch (column) {
 	     	case 0:
-	     		return "ID";
-	     	case 1:
 	     		return "NOMBRE";
-	     	case 2:
+	     	case 1:
 	     		return "APELLIDOS";
-	     	case 3:
+	     	case 2:
 	     		return "DNI";
-	     	case 4:
+	     	case 3:
 	     		return "CUIT-CUIL";
-	     	case 5:
+	     	case 4:
 	     		return "FECHA NAC";
-	     	case 6: 
+	     	case 5: 
 	     		return "EMAIL";
-	     	case 7: 		//Telefono
+	     	case 6: 		//Telefono
 	     		return "PERSONAL";
-	     	case 8:
+	     	case 7:
 	     		return "CELULAR";
-	    	case 9:
+	    	case 8:
 	     		return "LABORAL";
-	     	case 10:		//Direccion
+	     	case 9:		//Direccion
 	     		return "CALLE";
-	     	case 11:
+	     	case 10:
 	     		return "ALTURA";
-	     	case 12:
+	     	case 11:
 	     		return "CIUDAD";
-	     	case 13:
+	     	case 12:
 	     		return "COD POSTAL";
-	     	case 14:
+	     	case 13:
 	     		return "PAÍS";
-	     	case 15: 
+	     	case 14: 
 	     		return "PROVINCIA";
-	     	case 16: 		//Pasaporte
+	     	case 15: 		//Pasaporte
 	     		return "NÚMERO";
-	     	case 17:
+	     	case 16:
 	     		return "AUTORIDAD EMISIÓN";
-	     	case 18:
+	     	case 17:
 	     		return "FECHA EMISIÓN";
-	     	case 19:
+	     	case 18:
 	     		return "FECHA VENCIMIENTO";
-	     	case 20:
+	     	case 19:
 	     		return "PAÍS";
 	     	default:
 	     		return "[no]";
@@ -72,7 +70,7 @@ public class ClientesTableModel extends AbstractTableModel{
 	
 	@Override
 	public int getColumnCount() {
-		return 21;
+		return 20;
 	}
 	
 	@Override
