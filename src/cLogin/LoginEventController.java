@@ -1,8 +1,9 @@
-package loginControllers;
+package cLogin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import cMenuPpal.MenuPpalEvenController;
 import vistas.FrameGeneralView;
 import vistas.LoginView;
 
@@ -12,7 +13,6 @@ public class LoginEventController implements ActionListener{
 	private LoginLogic logic;
 	public LoginEventController(FrameGeneralView view) {
 		this.view = view;
-		System.out.println("CONSTRUCTOR");
 		this.logic = new LoginLogic(); 
 		view.getBtnIngresar_Login().addActionListener(this);
 	}
@@ -23,7 +23,7 @@ public class LoginEventController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 	
 		 if (e.getSource() == view.getBtnIngresar_Login()) {
-			 
+			 	
 	            try {
 	            
 	            		String user = view.getTextUsuario_Login();
@@ -32,7 +32,11 @@ public class LoginEventController implements ActionListener{
 		            	System.out.println(clave);
 		            	
 		            	if(logic.verificarLogin(user, clave)) {
-		            		view.disable();
+		            		
+		            		MenuPpalEvenController menu = new MenuPpalEvenController(view);
+
+		            		
+		            	
 		            	}else {
 		            		view.setTxtLblMensajeErrorLogin("Usuario o contraseña incorrecto");
 		            	}

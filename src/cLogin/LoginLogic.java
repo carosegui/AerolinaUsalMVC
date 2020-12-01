@@ -1,6 +1,7 @@
-package loginControllers;
+package cLogin;
 
 import dao.interfaces.aeropuerto.UsuarioDAO;
+import dao.jdbc.DaoManager;
 import dao.jdbc.JdbcDaoFactory;
 import dao.jdbc.aeropuerto.JdbcUsuarioDao;
 import model.aeropuerto.Usuario;
@@ -18,8 +19,8 @@ public class LoginLogic {
 	
 	
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
-    		
-    		final UsuarioDAO usuarioDao = new JdbcUsuarioDao(f);
+    		DaoManager manager = new DaoManager(f);
+    		final UsuarioDAO usuarioDao = new JdbcUsuarioDao(manager);
     		
     		
     		//SELECT * FROM usuarios WHERE clave = ? AND nombre_usuario = ? 
@@ -27,10 +28,6 @@ public class LoginLogic {
     		user = usuarioDao.getByName(usuario);
     		System.out.println(user);
     		if(clave.contentEquals(user.getClave())) {
-
-
-    			FrameGeneralView mpv = new FrameGeneralView();
-    			mpv.setVisible(true);
     			verificado = true;
     		}
     		

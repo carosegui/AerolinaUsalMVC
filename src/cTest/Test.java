@@ -1,6 +1,6 @@
-package controladores;
+package cTest;
 
-import loginControllers.LoginEventController;
+import cLogin.LoginEventController;
 import test.TestJdbcDaos;
 import vistas.FrameGeneralView;
 import vistas.LoginView;

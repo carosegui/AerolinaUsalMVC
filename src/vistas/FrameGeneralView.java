@@ -79,7 +79,7 @@ public class FrameGeneralView extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 		initPanels();
 		setContentPane(contentPane);
-		btnVuelos();
+		displayLogin();
 	}
 	
 	private void initMenuBar() {
@@ -122,10 +122,17 @@ public class FrameGeneralView extends JFrame {
 		contentPane.add(lineasAereasFormPanel, "lineasAereasFormPanel");		
 	}
 	
-	//Metodos eventos --------------------------------------------------------------------
+	//Metodos eventos  LOS QUE DICEN BTN SON DE LA MENU BAR LOS OTROS SON PARA CAMBIAR DE VISTA--------------------------------------------------------------------
 	public void btnVuelos() {
 		cardLayout = (CardLayout) contentPane.getLayout();
 		cardLayout.show(contentPane, "vuelosTablePanel");
+		setBounds(new Rectangle(vuelosTablePanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
+	public void displayLogin() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "loginPanel");
 		setBounds(new Rectangle(vuelosTablePanel.getPreferredSize()));
 		setLocationRelativeTo(null);
 	}
@@ -229,6 +236,9 @@ public class FrameGeneralView extends JFrame {
 	
 	public void setSelectedRow_Vuelos(Object data[]) {
 		this.vuelosFormPanel.setSelectedRow(data);
+	}
+	public JButton getBtnOk_VUelossForm() {
+		return vuelosFormPanel.getBtnOk_Vuelos();
 	}
 	
 	//Metodos panel Clientes Form --------------------------------------------------------------------

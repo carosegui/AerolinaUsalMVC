@@ -248,4 +248,8 @@ public class VuelosFormView extends JPanel {
 	public Object getDateFechaLlegada() {
 		return dateFechaLlegada.getModel().getValue();
 	}
+	
+	public JButton getBtnOk_Vuelos() {
+		return btnOk;
+	}
 }
