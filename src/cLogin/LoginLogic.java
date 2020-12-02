@@ -19,15 +19,16 @@ public class LoginLogic {
 	
 	
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
-    		DaoManager manager = new DaoManager(f);
-    		final UsuarioDAO usuarioDao = new JdbcUsuarioDao(manager);
     		
+			final UsuarioDAO usuarioDao = f.getDao(JdbcUsuarioDao.class);
     		
+    		user = usuarioDao.getByNamePassword(usuario, clave);
     		//SELECT * FROM usuarios WHERE clave = ? AND nombre_usuario = ? 
     		
-    		user = usuarioDao.getByName(usuario);
+    
+    		
     		System.out.println(user);
-    		if(clave.contentEquals(user.getClave())) {
+    		if(user != null) {
     			verificado = true;
     		}
     		
