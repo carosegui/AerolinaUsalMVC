@@ -3,6 +3,7 @@ package cMenuPpal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import cCLientes.ClientesEventController;
 import cVuelos.VuelosEventController;
 import vistas.FrameGeneralView;
 
@@ -26,6 +27,8 @@ public class MenuPpalEvenController implements ActionListener{
 			System.out.println("Ventas");
 	}else if(e.getSource() == view.getBtnClientes()) {
 		System.out.println("Clientes");
+		ClientesEventController c = new ClientesEventController(view);
+		view.displayClientesForm();
 		view.displayClientesForm();
 	}else if(e.getSource() == view.getBtnVuelos()) {
 		System.out.println("Vuelos");

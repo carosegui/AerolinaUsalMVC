@@ -24,11 +24,10 @@ public class VuelosLogic {
 		
 
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
-    		DaoManager manager = new DaoManager(f);
-    		final VueloDAO vueloDao = new JdbcVueloDao(manager);
     		
-    		final AerolineaDao aerolineaDao = new JdbcAerolineaDao(manager);
-    		final AeropuertoDAO aeropuertoDao = new JdbcAeropuertoDao(manager);
+    		final VueloDAO vueloDao = f.getDao(VueloDAO.class);
+    		final AerolineaDao aerolineaDao = f.getDao(AerolineaDao.class);
+    		final AeropuertoDAO aeropuertoDao = f.getDao(AeropuertoDAO.class);
     		
     		Aerolinea aerolinea = aerolineaDao.get(id_aerolinea);
     		Aeropuerto salida = aeropuertoDao.get(id_aeropuertoSalida);
