@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 
 import tableModels.LineasAereasTableModel;
 
@@ -98,33 +101,25 @@ public class LineasAereasTableView extends JPanel {
 	private void initTable(/*ClientesDAO dao*/) {
 		 tableModel = new LineasAereasTableModel(/*dao*/);
 		 tableModel.updateModel();
-		 panelTabla.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		 panelTabla.setLayout(null);
 		 table = new JTable(tableModel);
-		 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-//		 headers();
+		 table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+		 headers();
 		 scrollPane = new JScrollPane(table);
+		 scrollPane.setBounds(221, 11, 251, 427);
 		 panelTabla.add(scrollPane);
 	}
 	
-//	private void headers() {
-//		//Acomodo los headers
-//		 JTableHeader th = table.getTableHeader();
-//		 ((DefaultTableCellRenderer)th.getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-//		 
-//		 TableColumn tc = table.getColumnModel().getColumn(5);
-//		 tc.setPreferredWidth(100);
-//		 tc = table.getColumnModel().getColumn(13);
-//		 tc.setPreferredWidth(100);
-//		 tc = table.getColumnModel().getColumn(15);
-//		 tc.setPreferredWidth(100);
-//		 tc = table.getColumnModel().getColumn(17);
-//		 tc.setPreferredWidth(130);
-//		 tc = table.getColumnModel().getColumn(18);
-//		 tc.setPreferredWidth(110);
-//		 tc = table.getColumnModel().getColumn(19);
-//		 tc.setPreferredWidth(130);
-//		 
-//	}
+	private void headers() {
+		//Acomodo los headers
+		 JTableHeader th = table.getTableHeader();
+		 ((DefaultTableCellRenderer)th.getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+		 
+		 TableColumn tc = table.getColumnModel().getColumn(0);
+		 tc.setPreferredWidth(100);
+		 tc = table.getColumnModel().getColumn(1);
+		 tc.setPreferredWidth(100);
+	}
 	
 	public void updateTable() {
 		tableModel.updateModel();
