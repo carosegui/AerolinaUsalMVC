@@ -12,9 +12,11 @@ import javax.swing.border.EmptyBorder;
 
 import vistas.forms.ClientesFormView;
 import vistas.forms.LineasAereasFormView;
+import vistas.forms.VentasFormView;
 import vistas.forms.VuelosFormView;
 import vistas.tables.ClientesTableView;
 import vistas.tables.LineasAereasTableView;
+import vistas.tables.VentasTableView;
 import vistas.tables.VuelosTableView;
 
 public class FrameGeneralView extends JFrame {
@@ -32,6 +34,10 @@ public class FrameGeneralView extends JFrame {
 	//Lineas Aereas
 	private LineasAereasTableView lineasAereasTablePanel;
 	private LineasAereasFormView lineasAereasFormPanel;
+	//Ventas
+	private VentasTableView ventasTablePanel;
+	private Ventas_FormaDePagoView ventas_FormaDePagoPanel;
+	private VentasFormView ventasFormPanel;
 	
 	//Menu Bar
 	private JMenuBar menuBar;
@@ -99,6 +105,7 @@ public class FrameGeneralView extends JFrame {
 		menuBar.add(btnLineasAereas);
 	}
 	
+	//Instancio los distintos paneles 
 	private void initPanels() {
 		loginPanel = new LoginView();
 		contentPane.add(loginPanel, "loginPanel");
@@ -119,7 +126,16 @@ public class FrameGeneralView extends JFrame {
 		contentPane.add(lineasAereasTablePanel, "lineasAereasTablePanel");		
 		
 		lineasAereasFormPanel = new LineasAereasFormView();
-		contentPane.add(lineasAereasFormPanel, "lineasAereasFormPanel");		
+		contentPane.add(lineasAereasFormPanel, "lineasAereasFormPanel");
+		
+		ventasFormPanel = new VentasFormView();
+		contentPane.add(ventasFormPanel, "ventasFormPanel");
+		
+		ventasTablePanel = new VentasTableView();
+		contentPane.add(ventasTablePanel, "ventasTablePanel");
+		
+		ventas_FormaDePagoPanel = new Ventas_FormaDePagoView();
+		contentPane.add(ventas_FormaDePagoPanel, "ventas_FormaDePagoPanel");
 	}
 	
 	//Metodos eventos  LOS QUE DICEN BTN SON DE LA MENU BAR LOS OTROS SON PARA CAMBIAR DE VISTA--------------------------------------------------------------------
@@ -172,12 +188,26 @@ public class FrameGeneralView extends JFrame {
 		setLocationRelativeTo(null);
 	}
 	
-//	public void btnVentas() {
-//		cardLayout = (CardLayout) contentPane.getLayout();
-//		cardLayout.show(contentPane, "vuelosTablePanel");
-//		setBounds(new Rectangle(vuelosTablePanel.getPreferredSize()));
-//		setLocationRelativeTo(null);
-//	}
+	public void btnVentas() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "ventasFormPanel");
+		setBounds(new Rectangle(ventasFormPanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
+	public void displayVentasTable() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "ventasTablePanel");
+		setBounds(new Rectangle(ventasTablePanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
+	public void displayVentasFormaDePago() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "ventas_FormaDePagoPanel");
+		setBounds(new Rectangle(ventas_FormaDePagoPanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
 	
 	//Metodos panel Login --------------------------------------------------------------------
 	public void setTxtLblMensajeErrorLogin(String mensaje) {
@@ -362,6 +392,38 @@ public class FrameGeneralView extends JFrame {
 	public void setSelectedRow_LineasAeereas(String data[]) {
 		this.lineasAereasFormPanel.setSelectedRow(data);
 	}
+	
+	//Metodos Ventas Form --------------------------------------------------------------------
+	public JButton getBtnBuscarVuelos_Ventas() {
+		return ventasFormPanel.getBtnBuscarVuelos();
+	}
+	
+	public String getTextCAeropuertoOrigen_Ventas() {
+		return ventasFormPanel.getTextCAeropuertoOrigen();
+	}
+	
+	public String getTextCAeropuertoDestino_Ventas() {
+		return ventasFormPanel.getTextCAeropuertoDestino();
+	}
+	
+	//Metodos Ventas Table --------------------------------------------------------------------
+	public Object[] getSelectedRow_Ventas() {
+		return ventasTablePanel.getSelectedRow();
+	}
+	
+	//Metodos Ventas Forma de pago  --------------------------------------------------------------------
+	public JButton getBtnConfirmarCompra_Ventas() {
+		return ventas_FormaDePagoPanel.getBtnConfirmarCompra();
+	}
+	
+	public String getTextRbEfectivo_Ventas() {
+		return ventas_FormaDePagoPanel.getTextRbEfectivo();
+	}
+	
+	public String getTextRbTarjeta_Ventas() {
+		return ventas_FormaDePagoPanel.getTextRbTarjeta();
+	}
+	
 	//Botones menu bar --------------------------------------------------------------------
 	public JButton getBtnClientes() {
 		return btnClientes;

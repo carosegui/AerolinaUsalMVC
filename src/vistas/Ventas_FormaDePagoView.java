@@ -14,16 +14,16 @@ import java.awt.Font;
 
 public class Ventas_FormaDePagoView extends JPanel {
 
-	JPanel lblPanel;
-	JPanel rbPanel;
-	JPanel btnPanel;
+	private JPanel lblPanel;
+	private JPanel rbPanel;
+	private JPanel btnPanel;
 	
-	JLabel lblTitulo;
+	private JLabel lblTitulo;
 	
-	JRadioButton rbEfectivo;
-	JRadioButton rbTarjeta;
+	private JRadioButton rbEfectivo;
+	private JRadioButton rbTarjeta;
 	
-	JButton btnConfirmarCompra;
+	private JButton btnConfirmarCompra;
 	
 	public Ventas_FormaDePagoView() {
 		initComponents();
@@ -70,4 +70,15 @@ public class Ventas_FormaDePagoView extends JPanel {
 		this.add(btnPanel, BorderLayout.SOUTH);
 	}
 
+	public JButton getBtnConfirmarCompra() {
+		return btnConfirmarCompra;
+	}
+	
+	public String getTextRbEfectivo() {
+		return rbEfectivo.getActionCommand();
+	}
+	
+	public String getTextRbTarjeta() {
+		return rbTarjeta.getActionCommand();
+	}
 }

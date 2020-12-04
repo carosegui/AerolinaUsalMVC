@@ -32,19 +32,6 @@ public class VuelosTableView extends JPanel{
 	private JButton btnBorrar;
 	private JButton btnSeleccionar;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VuelosTableView frame = new VuelosTableView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public VuelosTableView() {
 		initComponents();
 		initTable();

@@ -22,6 +22,7 @@ public class VentasFormView extends JPanel {
 	private JLabel lblAeropuertoOrigen; 
 	private JLabel lblAeropuertoDestino;
 	
+	//TODO: Pasarle los aeropuertos a los comboBox
 	private JComboBox cAeropuertoOrigen;
 	private JComboBox cAeropuertoDestino;
 	
@@ -82,5 +83,17 @@ public class VentasFormView extends JPanel {
 		vb.add(hb2);
 		
 		this.add(vb);
+	}
+	
+	public JButton getBtnBuscarVuelos() {
+		return btnBuscarVuelos;
+	}
+	
+	public String getTextCAeropuertoOrigen() {
+		return cAeropuertoOrigen.getActionCommand();
+	}
+	
+	public String getTextCAeropuertoDestino() {
+		return cAeropuertoDestino.getActionCommand();
 	}
 }
