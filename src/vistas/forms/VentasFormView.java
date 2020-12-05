@@ -45,7 +45,7 @@ public class VentasFormView extends JPanel {
 		lblAeropuertoOrigen.setPreferredSize(new Dimension(70, 14));
 		lblAeropuertoOrigen.setFont(f);
 		
-		cAeropuertoOrigen = new JComboBox<>();
+		cAeropuertoOrigen = new JComboBox<String>();
 		cAeropuertoOrigen.setPreferredSize(new Dimension(150, 22));
 		cAeropuertoOrigen.setBounds(new Rectangle(50,15));
 		
@@ -95,5 +95,13 @@ public class VentasFormView extends JPanel {
 	
 	public String getTextCAeropuertoDestino() {
 		return cAeropuertoDestino.getActionCommand();
+	}
+	
+	public JComboBox<String> getAeropuetoComboBox(){
+		return cAeropuertoOrigen;
+	}
+	
+	public JComboBox<String> getAeropuertoDestinoComboBox(){
+		return cAeropuertoDestino;
 	}
 }

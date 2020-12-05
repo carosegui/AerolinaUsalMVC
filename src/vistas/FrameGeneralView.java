@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Rectangle;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
@@ -404,6 +405,14 @@ public class FrameGeneralView extends JFrame {
 	
 	public String getTextCAeropuertoDestino_Ventas() {
 		return ventasFormPanel.getTextCAeropuertoDestino();
+	}
+	
+	public JComboBox<String> getOrigenComboBox(){
+		return ventasFormPanel.getAeropuetoComboBox();
+	}
+	
+	public JComboBox<String> getDestinoComboBox(){
+		return ventasFormPanel.getAeropuertoDestinoComboBox();
 	}
 	
 	//Metodos Ventas Table --------------------------------------------------------------------

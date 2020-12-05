@@ -81,7 +81,7 @@ public class VuelosTableView extends JPanel{
 		 this.tableModel.updateModel();
 		 this.table = new JTable(tableModel);
 		 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		 headers();
+//		 headers();
 		 this.scrollPane = new JScrollPane(table);
 		 this.scrollPane.setBounds(0, 0, 690, 470);
 		 panelInferior.add(scrollPane);
