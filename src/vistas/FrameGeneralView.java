@@ -3,6 +3,7 @@ package vistas;
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -175,6 +176,7 @@ public class FrameGeneralView extends JFrame {
 	}
 	
 	public void btnLineasAereas() {
+		
 		cardLayout = (CardLayout) contentPane.getLayout();
 		cardLayout.show(contentPane, "lineasAereasTablePanel");
 		setBounds(new Rectangle(lineasAereasTablePanel.getPreferredSize()));
@@ -368,7 +370,7 @@ public class FrameGeneralView extends JFrame {
 		this.clientesFormPanel.setSelectedRow(data);
 	}
 	
-	//Metodos Lineas Aereas Form --------------------------------------------------------------------
+	//Metodos Lineas Aereas --------------------------------------------------------------------
 	public String getTextTxtNombre_LineasAereas() {
 		return lineasAereasFormPanel.getTextTxtNombre();
 	}
@@ -391,6 +393,10 @@ public class FrameGeneralView extends JFrame {
 	
 	public void setSelectedRow_LineasAeereas(String data[]) {
 		this.lineasAereasFormPanel.setSelectedRow(data);
+	}
+	
+	public void setTableModel_LineasAereas(List<?> lista) { //TODO: POLLO ACA PASA LISTA
+		this.lineasAereasTablePanel.setTableModel(lista);
 	}
 	
 	//Metodos Ventas Form --------------------------------------------------------------------

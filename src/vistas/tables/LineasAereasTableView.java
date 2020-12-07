@@ -3,6 +3,7 @@ package vistas.tables;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -98,9 +99,9 @@ public class LineasAereasTableView extends JPanel {
 		this.add(panelTabla);
 	}
 	
-	private void initTable(/*ClientesDAO dao*/) {
-		 tableModel = new LineasAereasTableModel(/*dao*/);
-		 tableModel.updateModel();
+	private void initTable() {
+		 tableModel = new LineasAereasTableModel();
+//		 tableModel.updateModel();
 		 panelTabla.setLayout(null);
 		 table = new JTable(tableModel);
 		 table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
@@ -121,10 +122,10 @@ public class LineasAereasTableView extends JPanel {
 		 tc.setPreferredWidth(100);
 	}
 	
-	public void updateTable() {
-		tableModel.updateModel();
-		tableModel.fireTableDataChanged();
-	}
+//	public void updateTable() {
+//		tableModel.updateModel();
+//		tableModel.fireTableDataChanged();
+//	}
 	
 	//Usar este metodo cuando se utilice el boton SELECCIONAR
 	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<String>
@@ -136,5 +137,10 @@ public class LineasAereasTableView extends JPanel {
 		data[1] = (String) this.tableModel.getValueAt(selectedRow, 1);
 		
 		return data;	
+	}
+	
+	public void setTableModel(List<?> lista) {
+		this.tableModel.setList(lista);
+		this.tableModel.fireTableDataChanged();
 	}
 }

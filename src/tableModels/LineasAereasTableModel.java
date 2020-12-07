@@ -1,19 +1,24 @@
 package tableModels;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
 
 public class LineasAereasTableModel extends AbstractTableModel{
 
-//	private TODO: implementar LineasAereasDAO
-//	private List<LineasAereas> lineasAereas = new ArrayList<LineasAereas>(); TODO: implementar
+	private List<?> lineasAereas = new ArrayList<>();
 	
 	public LineasAereasTableModel() {
-//		this.dao = dao;
 	}
 	
-	public void updateModel() {
-//		lineasAereas.clear(); //Se hace asi o volviendo a instanciar el dao
+//	public void updateModel() {
+//		lineasAereas.clear();
 //		lineasAereas = dao.getAll();
+//	}
+	
+	public void setList(List<?> lineasAereas) {
+		this.lineasAereas = lineasAereas;
 	}
 	
 	@Override
@@ -30,7 +35,7 @@ public class LineasAereasTableModel extends AbstractTableModel{
 	
 	@Override
 	public int getRowCount() {
-		return 0; //vuelos.size(); TODO: Implementar
+		return lineasAereas.size();
 	}
 
 	@Override
@@ -50,5 +55,5 @@ public class LineasAereasTableModel extends AbstractTableModel{
 //	        default:
 //	            return "[no]";
 //		}
-	}
+	}	
 }
