@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import cCLientes.ClientesEventController;
+import cLineasAereas.LineasAereasEventController;
+import cLineasAereas.LineasAereasLogic;
 import cVentas.VentasEventController;
 import cVuelos.VuelosEventController;
 import vistas.FrameGeneralView;
@@ -39,7 +41,8 @@ public class MenuPpalEvenController implements ActionListener{
 		view.displayVuelosForm();
 	}else if(e.getSource() == view.getBtnLineasAereas()) {
 		System.out.println("Lineas");
-		view.displayLineasAereasForm();
+		LineasAereasEventController la = new LineasAereasEventController(view);
+		view.btnLineasAereas();
 	}
 
 }
