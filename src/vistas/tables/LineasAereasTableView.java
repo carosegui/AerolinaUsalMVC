@@ -16,6 +16,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
 import tableModels.LineasAereasTableModel;
+import java.awt.Dimension;
 
 public class LineasAereasTableView extends JPanel {
 	
@@ -53,6 +54,7 @@ public class LineasAereasTableView extends JPanel {
 	 * Create the frame.
 	 */
 	public LineasAereasTableView() {
+		setPreferredSize(new Dimension(656, 492));
 		this.setBounds(100, 100, 656, 492);
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(null);
