@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import cCLientes.ClientesEventController;
+import cVentas.VentasEventController;
 import cVuelos.VuelosEventController;
 import vistas.FrameGeneralView;
 
@@ -25,6 +26,8 @@ public class MenuPpalEvenController implements ActionListener{
 		
 		if(e.getSource() == view.getBtnVentas()) {
 			System.out.println("Ventas");
+			VentasEventController v = new VentasEventController(view);
+			
 	}else if(e.getSource() == view.getBtnClientes()) {
 		System.out.println("Clientes");
 		ClientesEventController c = new ClientesEventController(view);

@@ -13,7 +13,6 @@ public class Test {
 		lo.setVisible(true);
 		
 		LoginEventController lc = new LoginEventController(lo);
-//		lo.setVisible(true);
 
 	}
 }
