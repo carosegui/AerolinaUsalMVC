@@ -15,6 +15,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
 import model.aeropuerto.Venta;
+import model.aeropuerto.Vuelo;
 import tableModels.VentasTableModel;
 
 

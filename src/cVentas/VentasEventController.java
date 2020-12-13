@@ -27,7 +27,7 @@ public class VentasEventController implements ActionListener {
 		
 		if(e.getSource() == view.getBtnBuscarVuelos_Ventas()) {
 			
-//			this.view.setTableModel_Ventas(logic.verificarVuelos(view.getTextCAeropuertoOrigen_Ventas(), view.getTextCAeropuertoDestino_Ventas()););
+			this.view.setTableModel_Ventas(logic.verificarVuelos(view.getTextCAeropuertoOrigen_Ventas(), view.getTextCAeropuertoDestino_Ventas()));
 			view.displayVentasTable();
 			
 		}

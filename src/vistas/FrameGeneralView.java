@@ -438,7 +438,7 @@ public class FrameGeneralView extends JFrame {
 		return ventasTablePanel.getSelectedRow();
 	}
 	
-	public void setTableModel_Ventas(List<Venta> lista) {
+	public void setTableModel_Ventas(List<Vuelo> lista) {
 		this.ventasTablePanel.setTableModel(lista);
 	}
 	

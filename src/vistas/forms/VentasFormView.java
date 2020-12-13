@@ -90,11 +90,11 @@ public class VentasFormView extends JPanel {
 	}
 	
 	public String getTextCAeropuertoOrigen() {
-		return cAeropuertoOrigen.getActionCommand();
+		return cAeropuertoOrigen.getSelectedItem().toString();
 	}
 	
 	public String getTextCAeropuertoDestino() {
-		return cAeropuertoDestino.getActionCommand();
+		return cAeropuertoDestino.getSelectedItem().toString();
 	}
 	
 	public JComboBox<String> getAeropuetoComboBox(){
