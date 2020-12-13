@@ -1,19 +1,27 @@
 package tableModels;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
+
+import model.aeropuerto.Vuelo;
 
 public class VuelosTableModel extends AbstractTableModel{
 
-//	private TODO: implementar VuelosDAO
-//	private List<Vuelo> vuelos = new ArrayList<Vuelo>(); TODO: implementar
+	private List<Vuelo> vuelos;
 	
 	public VuelosTableModel() {
-		// this.dao = dao;
+		vuelos = new ArrayList<Vuelo>();
 	}
 	
-	public void updateModel() {
+//	public void updateModel() {
 //		vuelos.clear(); //Se hace asi o volviendo a instanciar el dao
 //		vuelos = dao.getAll();
+//	}
+	
+	public void setList(List<Vuelo> vuelos) {
+		this.vuelos = vuelos;
 	}
 	
 	@Override
@@ -42,7 +50,7 @@ public class VuelosTableModel extends AbstractTableModel{
 	
 	@Override
 	public int getRowCount() {
-		return 0; //vuelos.size(); TODO: Implementar
+		return vuelos.size();
 	}
 
 	@Override
@@ -52,30 +60,27 @@ public class VuelosTableModel extends AbstractTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-//		Vuelo preguntado = vuelos.get(rowIndex);
-		return null;
-//		switch (columnIndex) {
-//	        case 0:
-//	            return preguntado.get    TODO
-//	        case 1:
-//	            return preguntado.get
-//	        case 2:
-//	            return preguntado.get
-//	        case 3:
-//	            return preguntado.get
-//	        case 4:
-//	            return preguntado.get
-//			case 5:
-//				return preguntado.get
-//			case 6:
-//				return preguntado.get
-//			case 7:
-//				return preguntado.get
-//			case 8:
-//				return preguntado.get
-//	        default:
-//	            return "[no]";
-//		}
+		Vuelo preguntado = vuelos.get(rowIndex);
+		switch (columnIndex) {
+	        case 0:
+	            return preguntado.getNroVuelo();
+	        case 1:
+	            return preguntado.getCantAsientos();
+	        case 2:
+	            return preguntado.getFecHsSalida();
+	        case 3:
+	            return preguntado.getFecHsLlegada();
+	        case 4:
+	            return preguntado.getTiempoVuelo();
+			case 5:
+				return preguntado.getAerolinea();
+			case 6:
+				return preguntado.getAeropuertoSalida();
+			case 7:
+				return preguntado.getAeropuertoLlegada();
+	        default:
+	            return "[no]";
+		}
 	}
 	
 	

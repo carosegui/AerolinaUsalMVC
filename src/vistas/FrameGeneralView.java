@@ -275,6 +275,10 @@ public class FrameGeneralView extends JFrame {
 		return vuelosFormPanel.getBtnOk_Vuelos();
 	}
 	
+	public void setTableModel_Vuelos(List<Vuelo> lista) { //TODO: POLLO ACA PASA LISTA
+		this.vuelosTablePanel.setTableModel(lista);
+	}
+	
 	//Metodos panel Clientes Form --------------------------------------------------------------------
 	public String getTextTxtNombre_ClientesForm() {
 		return clientesFormPanel.getTextTxtNombre();

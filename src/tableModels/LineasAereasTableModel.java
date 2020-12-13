@@ -9,9 +9,10 @@ import model.aeropuerto.Aerolinea;
 
 public class LineasAereasTableModel extends AbstractTableModel{
 
-	private List<Aerolinea> lineasAereas = new ArrayList<>();
+	private List<Aerolinea> lineasAereas;
 	
 	public LineasAereasTableModel() {
+		lineasAereas = new ArrayList<Aerolinea>();
 	}
 	
 //	public void updateModel() {

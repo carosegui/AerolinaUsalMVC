@@ -1,22 +1,19 @@
 package vistas.tables;
 
-import java.awt.EventQueue;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
-import org.jdatepicker.impl.JDatePickerImpl;
-
+import model.aeropuerto.Vuelo;
 import tableModels.VuelosTableModel;
 
 public class VuelosTableView extends JPanel{
@@ -33,6 +30,7 @@ public class VuelosTableView extends JPanel{
 	private JButton btnSeleccionar;
 
 	public VuelosTableView() {
+		setPreferredSize(new Dimension(700, 600));
 		initComponents();
 		initTable();
 	}
@@ -78,7 +76,7 @@ public class VuelosTableView extends JPanel{
 	
 	private void initTable(/*VuelosDAO dao*/) {
 		 this.tableModel = new VuelosTableModel(/*dao*/);
-		 this.tableModel.updateModel();
+//		 this.tableModel.updateModel();
 		 this.table = new JTable(tableModel);
 		 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 //		 headers();
@@ -113,10 +111,10 @@ public class VuelosTableView extends JPanel{
 		 
 	}
 	
-	public void updateTable() {
-		tableModel.updateModel();
-		tableModel.fireTableDataChanged();
-	}
+//	public void updateTable() {
+//		tableModel.updateModel();
+//		tableModel.fireTableDataChanged();
+//	}
 
 	//Usar este metodo cuando se utilice el boton SELECCIONAR
 	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<String>
@@ -134,5 +132,10 @@ public class VuelosTableView extends JPanel{
 		data[7] = this.tableModel.getValueAt(selectedRow, 7);
 		
 		return data;
+	}
+	
+	public void setTableModel(List<Vuelo> lista) {
+		this.tableModel.setList(lista);
+		this.tableModel.fireTableDataChanged();
 	}
 }
