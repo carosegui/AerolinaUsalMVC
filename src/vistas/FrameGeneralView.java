@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.aeropuerto.Aerolinea;
+import model.aeropuerto.Venta;
+import model.aeropuerto.Vuelo;
+import model.cliente.Cliente;
 import vistas.forms.ClientesFormView;
 import vistas.forms.LineasAereasFormView;
 import vistas.forms.VentasFormView;
@@ -275,7 +278,7 @@ public class FrameGeneralView extends JFrame {
 		return vuelosFormPanel.getBtnOk_Vuelos();
 	}
 	
-	public void setTableModel_Vuelos(List<Vuelo> lista) { //TODO: POLLO ACA PASA LISTA
+	public void setTableModel_Vuelos(List<Vuelo> lista) { 
 		this.vuelosTablePanel.setTableModel(lista);
 	}
 	
@@ -376,6 +379,10 @@ public class FrameGeneralView extends JFrame {
 		this.clientesFormPanel.setSelectedRow(data);
 	}
 	
+	public void setTableModel_Clientes(List<Cliente> lista) {
+		this.clientesTablePanel.setTableModel(lista);
+	}
+	
 	//Metodos Lineas Aereas --------------------------------------------------------------------
 	public String getTextTxtNombre_LineasAereas() {
 		return lineasAereasFormPanel.getTextTxtNombre();
@@ -401,7 +408,7 @@ public class FrameGeneralView extends JFrame {
 		this.lineasAereasFormPanel.setSelectedRow(data);
 	}
 	
-	public void setTableModel_LineasAereas(List<Aerolinea> lista) { //TODO: POLLO ACA PASA LISTA
+	public void setTableModel_LineasAereas(List<Aerolinea> lista) {
 		this.lineasAereasTablePanel.setTableModel(lista);
 	}
 	
@@ -429,6 +436,10 @@ public class FrameGeneralView extends JFrame {
 	//Metodos Ventas Table --------------------------------------------------------------------
 	public Object[] getSelectedRow_Ventas() {
 		return ventasTablePanel.getSelectedRow();
+	}
+	
+	public void setTableModel_Ventas(List<Venta> lista) {
+		this.ventasTablePanel.setTableModel(lista);
 	}
 	
 	//Metodos Ventas Forma de pago  --------------------------------------------------------------------

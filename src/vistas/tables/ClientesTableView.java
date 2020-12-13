@@ -2,6 +2,7 @@ package vistas.tables;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,6 +14,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
+import model.aeropuerto.Aerolinea;
+import model.cliente.Cliente;
 import tableModels.ClientesTableModel;
 
 
@@ -85,7 +88,7 @@ public class ClientesTableView extends JPanel {
 	
 	private void initTable(/*ClientesDAO dao*/) {
 		 this.tableModel = new ClientesTableModel(/*dao*/);
-		 this.tableModel.updateModel();
+//		 this.tableModel.updateModel();
 		 panelTabla.setLayout(null);
 		 this.table = new JTable(tableModel);
 		 table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -115,10 +118,10 @@ public class ClientesTableView extends JPanel {
 		 
 	}
 	
-	public void updateTable() {
-		tableModel.updateModel();
-		tableModel.fireTableDataChanged();
-	}
+//	public void updateTable() {
+//		tableModel.updateModel();
+//		tableModel.fireTableDataChanged();
+//	}
 
 	//Usar este metodo cuando se utilice el boton SELECCIONAR
 	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<String>
@@ -148,5 +151,10 @@ public class ClientesTableView extends JPanel {
 		data[19] = this.tableModel.getValueAt(selectedRow, 19);
 		
 		return data;
+	}
+	
+	public void setTableModel(List<Cliente> lista) {
+		this.tableModel.setList(lista);
+		this.tableModel.fireTableDataChanged();
 	}
 }

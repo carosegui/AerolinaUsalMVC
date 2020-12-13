@@ -1,19 +1,26 @@
 package tableModels;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
+import model.aeropuerto.Venta;
 
 public class VentasTableModel extends AbstractTableModel{
 
-//	private TODO: implementar LineasAereasDAO
-//	private List<Object> objetos = new ArrayList<Object>(); TODO: implementar
+	private List<Venta> ventas;
 	
 	public VentasTableModel() {
-//		this.dao = dao;
+		this.ventas = new ArrayList<Venta>();
 	}
 	
-	public void updateModel() {
+//	public void updateModel() {
 //		objetos.clear(); //Se hace asi o volviendo a instanciar el dao
 //		objetos = dao.getAll();
+//	}
+	
+	public void setList(List<Venta> ventas) {
+		this.ventas = ventas;
 	}
 	
 	@Override
@@ -36,7 +43,7 @@ public class VentasTableModel extends AbstractTableModel{
 	
 	@Override
 	public int getRowCount() {
-		return 0; //objetos.size(); TODO: Implementar
+		return ventas.size();
 	}
 
 	@Override
@@ -46,15 +53,20 @@ public class VentasTableModel extends AbstractTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-//		Object preguntado = objetos.get(rowIndex);
-		return null;
-//		switch (columnIndex) {
-//	        case 0:
-//	            return preguntado.get    TODO
-//	        case 1:
-//	            return preguntado.get
-//	        default:
-//	            return "[no]";
-//		}
+		Venta preguntado = ventas.get(rowIndex);
+		switch (columnIndex) {
+	        case 0:
+	            return preguntado.getVuelo().getAeropuertoSalida().getCiudad();
+	        case 1:
+	            return preguntado.getVuelo().getAeropuertoLlegada().getCiudad();
+	        case 2:
+	            return preguntado.getVuelo().getFecHsSalida();
+	        case 3:
+	            return preguntado.getVuelo().getFecHsLlegada();
+	        case 4:
+	            return preguntado.getAerolinea().getNombreAerolinea();
+	        default:
+	            return "[no]";
+		}
 	}
 }

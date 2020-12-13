@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Dimension;
 
 public class Ventas_FormaDePagoView extends JPanel {
 
@@ -26,6 +27,7 @@ public class Ventas_FormaDePagoView extends JPanel {
 	private JButton btnConfirmarCompra;
 	
 	public Ventas_FormaDePagoView() {
+		setPreferredSize(new Dimension(360, 330));
 		initComponents();
 	}
 

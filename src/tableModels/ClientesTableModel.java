@@ -1,18 +1,28 @@
 package tableModels;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
 
+import model.aeropuerto.Aerolinea;
+import model.cliente.Cliente;
+
 public class ClientesTableModel extends AbstractTableModel{
-//	private TODO: implementar ClientesDAO
-//	private List<Cliente> clientes = new ArrayList<Cliente>(); TODO: implementar
+	
+	private List<Cliente> clientes;
 
 	public ClientesTableModel() {
-//		this.dao = dao;
+		this.clientes = new ArrayList<Cliente>();
 	}
 	
-	public void updateModel() {
+//	public void updateModel() {
 //		clientes.clear();
 //		clientes = dao.getAll();
+//	}
+	
+	public void setList(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 	
 	@Override
@@ -65,7 +75,7 @@ public class ClientesTableModel extends AbstractTableModel{
 	
 	@Override
 	public int getRowCount() {
-		return 0; //Clientes.size(); TODO: Implementar
+		return clientes.size();
 	}
 	
 	@Override
@@ -75,55 +85,51 @@ public class ClientesTableModel extends AbstractTableModel{
 	
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		// TODO Auto-generated method stub
-		return null;
 		
-//		Cliente preguntado = clientes.get(rowIndex);
-    //	switch (columnIndex) {
-	//      case 0:
-	//          return preguntado.get   
-	//      case 1:
-	//          return preguntado.get
-	//      case 2:
-	//          return preguntado.get
-	//      case 3:
-	//          return preguntado.get
-	//      case 4:
-	//          return preguntado.get
-	//		case 5:
-	//			return preguntado.get
-	//		case 6:
-	//			return preguntado.get
-	//		case 7:
-	//			return preguntado.get
-	//		case 8:
-	//			return preguntado.get
-	//		case 9:
-	//          return preguntado.get
-	//      case 10:
-	//          return preguntado.get
-	//      case 11:
-	//          return preguntado.get
-	//      case 12:
-	//          return preguntado.get
-	//		case 13:
-	//			return preguntado.get
-	//		case 14:
-	//			return preguntado.get
-	//		case 15:
-	//			return preguntado.get
-	//		case 16:
-	//			return preguntado.get
-    //		case 17:
-	//          return preguntado.get
-	//      case 18:
-	//          return preguntado.get
-	//		case 19:
-	//			return preguntado.get
-	//		case 20:
-	//			return preguntado.get
-	//      default:
-	//            return "[no]";
-	//	 }
+		Cliente preguntado = clientes.get(rowIndex);
+    	switch (columnIndex) {
+	      case 0:
+	          return preguntado.getNombre();   
+	      case 1:
+	          return preguntado.getApellido();
+	      case 2:
+	          return preguntado.getDni();
+	      case 3:
+	          return preguntado.getCuitCuil();
+	      case 4:
+	          return preguntado.getFechaNacimiento();
+			case 5:
+				return preguntado.getEmail();
+			case 6:
+				return preguntado.getTelefono().getPersonal();
+			case 7:
+				return preguntado.getTelefono().getCelular();
+			case 8:
+				return preguntado.getTelefono().getLaboral();
+			case 9:
+	          return preguntado.getDireccion().getCalle();
+	      case 10:
+	          return preguntado.getDireccion().getAltura();
+	      case 11:
+	          return preguntado.getDireccion().getCiudad();
+	      case 12:
+	          return preguntado.getDireccion().getCodigoPostal();
+			case 13:
+				return preguntado.getDireccion().getPais();
+			case 14:
+				return preguntado.getDireccion().getProvincia();
+			case 15:
+				return preguntado.getPasaporte().getNroPasaporte();
+			case 16:
+				return preguntado.getPasaporte().getAutoridadEmision();
+    		case 17:
+	          return preguntado.getPasaporte().getFechaEmision();
+	      case 18:
+	          return preguntado.getPasaporte().getFechaVencimiento();
+			case 19:
+				return preguntado.getPasaporte().getPais();
+	      default:
+	            return "[no]";
+		 }
 	}
 }

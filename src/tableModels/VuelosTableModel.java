@@ -73,11 +73,11 @@ public class VuelosTableModel extends AbstractTableModel{
 	        case 4:
 	            return preguntado.getTiempoVuelo();
 			case 5:
-				return preguntado.getAerolinea();
+				return preguntado.getAerolinea().getNombreAerolinea();
 			case 6:
-				return preguntado.getAeropuertoSalida();
+				return preguntado.getAeropuertoSalida().getCiudad();
 			case 7:
-				return preguntado.getAeropuertoLlegada();
+				return preguntado.getAeropuertoLlegada().getCiudad();
 	        default:
 	            return "[no]";
 		}

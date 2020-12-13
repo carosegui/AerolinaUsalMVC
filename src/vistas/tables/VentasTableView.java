@@ -1,6 +1,8 @@
 package vistas.tables;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -12,6 +14,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
+import model.aeropuerto.Venta;
 import tableModels.VentasTableModel;
 
 
@@ -27,6 +30,7 @@ public class VentasTableView extends JPanel {
 	private JButton btnComprar;
 	
 	public VentasTableView() {
+		setPreferredSize(new Dimension(600, 500));
 		
 		initComponents();
 		initTable();
@@ -54,7 +58,7 @@ public class VentasTableView extends JPanel {
 	
 	private void initTable() {
 		this.tableModel = new VentasTableModel(/*dao*/);
-		this.tableModel.updateModel();
+//		this.tableModel.updateModel();
 		this.table = new JTable(tableModel);
 		this.table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 //		headers();
@@ -75,10 +79,10 @@ public class VentasTableView extends JPanel {
 		 
 	}
 	
-	public void updateTable() {
-		tableModel.updateModel();
-		tableModel.fireTableDataChanged();
-	}
+//	public void updateTable() {
+//		tableModel.updateModel();
+//		tableModel.fireTableDataChanged();
+//	}
 	
 	//Usar este metodo cuando se utilice el boton COMPRAR
 	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<Object>
@@ -94,5 +98,10 @@ public class VentasTableView extends JPanel {
 		data[5] = this.tableModel.getValueAt(selectedRow, 5);
 		
 		return data;
+	}
+	
+	public void setTableModel(List<Venta> lista) {
+		this.tableModel.setList(lista);
+		this.tableModel.fireTableDataChanged();
 	}
 }
