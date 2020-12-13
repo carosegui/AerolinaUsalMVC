@@ -16,11 +16,13 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Color;
 
 public class VentasFormView extends JPanel {
 
 	private JLabel lblAeropuertoOrigen; 
 	private JLabel lblAeropuertoDestino;
+	private JLabel lblMsjError;
 	
 	//TODO: Pasarle los aeropuertos a los comboBox
 	private JComboBox cAeropuertoOrigen;
@@ -70,8 +72,18 @@ public class VentasFormView extends JPanel {
 		Box hb2 = Box.createHorizontalBox();
 		
 		btnBuscarVuelos = new JButton("Buscar vuelos");
+		btnBuscarVuelos.setPreferredSize(new Dimension(40, 15));
 		
 		hb2.add(btnBuscarVuelos);
+		
+		//Row 4 ------
+		Box hb3 = Box.createHorizontalBox();
+		
+		lblMsjError = new JLabel("");
+		lblMsjError.setForeground(Color.RED);
+		lblMsjError.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		
+		hb3.add(lblMsjError);
 		
 		//Columns
 		Box vb = Box.createVerticalBox();
@@ -79,10 +91,20 @@ public class VentasFormView extends JPanel {
 		vb.add(hb);
 		vb.add(Box.createVerticalStrut(50));
 		vb.add(hb1);
-		vb.add(Box.createVerticalStrut(50));
+		vb.add(Box.createVerticalStrut(17));
+		vb.add(hb3);
+		vb.add(Box.createVerticalStrut(17));
 		vb.add(hb2);
 		
 		this.add(vb);
+	}
+	
+	public void setTxtLblMensajeError(String mensaje) {
+		this.lblMsjError.setText(mensaje);
+	}
+	
+	public JLabel gettTxtLblMensajeError() {
+		return lblMsjError;
 	}
 	
 	public JButton getBtnBuscarVuelos() {
