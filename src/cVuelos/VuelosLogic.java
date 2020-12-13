@@ -1,6 +1,8 @@
 package cVuelos;
 
 import java.security.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import dao.interfaces.aeropuerto.AerolineaDao;
 import dao.interfaces.aeropuerto.AeropuertoDAO;
@@ -25,9 +27,9 @@ public class VuelosLogic {
 
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
     		
-    		final VueloDAO vueloDao = f.getDao(VueloDAO.class);
-    		final AerolineaDao aerolineaDao = f.getDao(AerolineaDao.class);
-    		final AeropuertoDAO aeropuertoDao = f.getDao(AeropuertoDAO.class);
+    		final VueloDAO vueloDao = f.getDao(JdbcVueloDao.class);
+    		final AerolineaDao aerolineaDao = f.getDao(JdbcAerolineaDao.class);
+    		final AeropuertoDAO aeropuertoDao = f.getDao(JdbcAeropuertoDao.class);
     		
     		Aerolinea aerolinea = aerolineaDao.get(id_aerolinea);
     		Aeropuerto salida = aeropuertoDao.get(id_aeropuertoSalida);
@@ -43,6 +45,22 @@ public class VuelosLogic {
 
 		
 		}
+		
+	}
+	
+	
+	public List<Vuelo> getAllvuelos() {
+		
+		List<Vuelo> allVuelos = new ArrayList<Vuelo>();
+		
+		try(JdbcDaoFactory f = new JdbcDaoFactory()){
+			
+			final VueloDAO vueloDao = f.getDao(JdbcVueloDao.class);
+	
+			allVuelos = vueloDao.getAll();
+			
+		}
+			return allVuelos;
 		
 	}
 	

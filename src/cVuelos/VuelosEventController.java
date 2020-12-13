@@ -14,7 +14,8 @@ public class VuelosEventController implements ActionListener  {
 	public VuelosEventController(FrameGeneralView view) {
 		this.view = view;
 		this.logic = new VuelosLogic();
-		view.displayVuelosForm();
+		this.view.setTableModel_Vuelos(this.logic.getAllvuelos());
+		view.btnVuelos();
 		view.getBtnOk_VUelossForm().addActionListener(this);
 		
 	}
