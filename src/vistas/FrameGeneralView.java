@@ -12,6 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import model.aeropuerto.Aerolinea;
 import vistas.forms.ClientesFormView;
 import vistas.forms.LineasAereasFormView;
 import vistas.forms.VentasFormView;
@@ -396,7 +397,7 @@ public class FrameGeneralView extends JFrame {
 		this.lineasAereasFormPanel.setSelectedRow(data);
 	}
 	
-	public void setTableModel_LineasAereas(List<?> lista) { //TODO: POLLO ACA PASA LISTA
+	public void setTableModel_LineasAereas(List<Aerolinea> lista) { //TODO: POLLO ACA PASA LISTA
 		this.lineasAereasTablePanel.setTableModel(lista);
 	}
 	

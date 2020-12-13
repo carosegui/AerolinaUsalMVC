@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import model.aeropuerto.Aerolinea;
+
 public class LineasAereasTableModel extends AbstractTableModel{
 
-	private List<?> lineasAereas = new ArrayList<>();
+	private List<Aerolinea> lineasAereas = new ArrayList<>();
 	
 	public LineasAereasTableModel() {
 	}
@@ -17,7 +19,7 @@ public class LineasAereasTableModel extends AbstractTableModel{
 //		lineasAereas = dao.getAll();
 //	}
 	
-	public void setList(List<?> lineasAereas) {
+	public void setList(List<Aerolinea> lineasAereas) {
 		this.lineasAereas = lineasAereas;
 	}
 	
@@ -45,15 +47,14 @@ public class LineasAereasTableModel extends AbstractTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-//		Vuelo preguntado = vuelos.get(rowIndex);
-		return null;
-//		switch (columnIndex) {
-//	        case 0:
-//	            return preguntado.get    TODO
-//	        case 1:
-//	            return preguntado.get
-//	        default:
-//	            return "[no]";
-//		}
+		Aerolinea preguntado = lineasAereas.get(rowIndex);
+		switch (columnIndex) {
+	        case 0:
+	            return preguntado.getNombreAerolinea();
+	        case 1:
+	            return preguntado.getAlianza();
+	        default:
+	            return "[no]";
+		}
 	}	
 }

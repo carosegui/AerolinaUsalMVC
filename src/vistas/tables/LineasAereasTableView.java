@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
+import model.aeropuerto.Aerolinea;
 import tableModels.LineasAereasTableModel;
 import java.awt.Dimension;
 
@@ -141,7 +142,7 @@ public class LineasAereasTableView extends JPanel {
 		return data;	
 	}
 	
-	public void setTableModel(List<?> lista) {
+	public void setTableModel(List<Aerolinea> lista) {
 		this.tableModel.setList(lista);
 		this.tableModel.fireTableDataChanged();
 	}
