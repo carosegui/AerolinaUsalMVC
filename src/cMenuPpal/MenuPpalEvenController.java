@@ -16,7 +16,8 @@ public class MenuPpalEvenController implements ActionListener{
 	
 	public MenuPpalEvenController(FrameGeneralView view) {
 		this.view = view;
-		view.displayVuelosForm();
+		VuelosEventController v = new VuelosEventController(view);
+		view.btnVuelos();
 		view.getBtnVentas().addActionListener(this);
 		view.getBtnClientes().addActionListener(this);
 		view.getBtnVuelos().addActionListener(this);
@@ -33,12 +34,12 @@ public class MenuPpalEvenController implements ActionListener{
 	}else if(e.getSource() == view.getBtnClientes()) {
 		System.out.println("Clientes");
 		ClientesEventController c = new ClientesEventController(view);
-		view.displayClientesForm();
-		view.displayClientesForm();
+		view.btnClientes();
+		
 	}else if(e.getSource() == view.getBtnVuelos()) {
 		System.out.println("Vuelos");
-		VuelosEventController v = new VuelosEventController(view);
-		view.displayVuelosForm();
+//		VuelosEventController v = new VuelosEventController(view);
+		view.btnVuelos();
 	}else if(e.getSource() == view.getBtnLineasAereas()) {
 		System.out.println("Lineas");
 		LineasAereasEventController la = new LineasAereasEventController(view);

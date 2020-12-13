@@ -1,7 +1,10 @@
 package cCLientes;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+import dao.interfaces.cliente.ClienteDAO;
 import dao.jdbc.DaoManager;
 import dao.jdbc.JdbcDaoFactory;
 import dao.jdbc.cliente.JdbcClienteDao;
@@ -60,5 +63,21 @@ public class ClienteLogic {
 //		Telefono t = new Telefono(personal, celular, laboral)
 //		Cliente c = new Cliente(nombre, apellido, dni, cuitCuil, fechaNacimiento, email, direccion, telefono, pasaporte, pasajeroFrecuente);
 	}
+	
+		public List<Cliente> getAllClientes(){
+		
+			List<Cliente> allClientes = new ArrayList<Cliente>();
+		
+			try(JdbcDaoFactory f = new JdbcDaoFactory()){
+				
+				ClienteDAO clienteDao = f.getDao(JdbcClienteDao.class);
+				
+				allClientes = clienteDao.getAll();
+				
+			}
+		
+			return allClientes;
+	}
+	
 	
 }

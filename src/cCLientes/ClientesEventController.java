@@ -3,17 +3,22 @@ package cCLientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import cLogin.LoginLogic;
+import model.cliente.Cliente;
 import vistas.FrameGeneralView;
 
 public class ClientesEventController implements ActionListener{
 	
 	FrameGeneralView view;
-	ClienteLogic cliente;
+	ClienteLogic logic;
 	public ClientesEventController( FrameGeneralView view) {
 		this.view = view;
-		this.cliente = new ClienteLogic();
+		
+		this.logic = new ClienteLogic();
+		this.view.setTableModel_Clientes(this.logic.getAllClientes());
 		view.getBtnOk_ClientesForm().addActionListener(this);
 	}
 	
@@ -54,9 +59,12 @@ public class ClientesEventController implements ActionListener{
 			Date fechaVencimiento = (Date) view.getDateFechaVencimiento_ClientesForm();
 			int id_PAIS = Integer.parseInt(view.getTextTxtPais_pasaporte_ClientesForm());
 			
-			cliente.CreateCliente(nombre, apellido, dni, cuitCuil, fechaNacimiento, email, calle, altura, ciudad, codigo_postal, id_PAIS, id_provincia, id_provincia, personal, celular, laboral, nroPasaporte, autoridadEmision, fechaEmision, fechaVencimiento, id_PAIS);
+			logic.CreateCliente(nombre, apellido, dni, cuitCuil, fechaNacimiento, email, calle, altura, ciudad, codigo_postal, id_PAIS, id_provincia, id_provincia, personal, celular, laboral, nroPasaporte, autoridadEmision, fechaEmision, fechaVencimiento, id_PAIS);
 		}
 		
 	}
+	
+	
+
 
 }
