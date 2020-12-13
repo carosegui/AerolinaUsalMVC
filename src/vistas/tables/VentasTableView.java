@@ -100,7 +100,7 @@ public class VentasTableView extends JPanel {
 		return data;
 	}
 	
-	public void setTableModel(List<Venta> lista) {
+	public void setTableModel(List<Vuelo> lista) {
 		this.tableModel.setList(lista);
 		this.tableModel.fireTableDataChanged();
 	}
