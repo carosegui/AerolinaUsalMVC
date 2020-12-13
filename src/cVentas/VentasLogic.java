@@ -1,5 +1,6 @@
 package cVentas;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -41,24 +42,28 @@ public class VentasLogic {
 	@SuppressWarnings("null")
 	public List<Vuelo> verificarVuelos(String origen, String destino){
 		
-		   List<Vuelo> listaAllVuelos = null;
-		   List<Vuelo> listaVuelosElegidos = null;
+			System.out.println(origen+"  a  "+destino);
+		   List<Vuelo> listaAllVuelos = new ArrayList<Vuelo>();
+		   List<Vuelo> listaVuelosElegidos = new ArrayList<Vuelo>();
 		   
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
 			
 			VueloDAO vuelosDao = f.getDao(JdbcVueloDao.class);
 			listaAllVuelos = vuelosDao.getAll();
 			
+			
 			for (int i = 0; i < listaAllVuelos.size(); i++) {
 				
-				if(listaAllVuelos.get(i).getAeropuertoSalida().getCiudad().contentEquals(origen) && listaAllVuelos.get(i).getAeropuertoLlegada().getCiudad().contentEquals(destino)) 
+				if(listaAllVuelos.get(i).getAeropuertoSalida().getCiudad().contentEquals(origen) && listaAllVuelos.get(i).getAeropuertoLlegada().getCiudad().contentEquals(destino)) { 
 					listaVuelosElegidos.add(listaAllVuelos.get(i));
+					System.out.println(listaAllVuelos.get(i).getAeropuertoLlegada().getCiudad());
 					
 				}
+		}
 
 		}
 		
-		return listaAllVuelos;
+		return listaVuelosElegidos;
 		
 	}
 	
