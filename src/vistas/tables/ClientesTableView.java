@@ -17,6 +17,7 @@ import javax.swing.table.TableColumn;
 import model.aeropuerto.Aerolinea;
 import model.cliente.Cliente;
 import tableModels.ClientesTableModel;
+import java.awt.Dimension;
 
 
 public class ClientesTableView extends JPanel {
@@ -47,6 +48,7 @@ public class ClientesTableView extends JPanel {
 	 * Create the frame.
 	 */
 	public ClientesTableView() {
+		setPreferredSize(new Dimension(1220, 600));
 		initComponents();
 		initTable();
 	}

@@ -94,7 +94,7 @@ public class FrameGeneralView extends JFrame {
 		displayLogin();
 	}
 	
-	private void initMenuBar() {
+	public void initMenuBar() {
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
