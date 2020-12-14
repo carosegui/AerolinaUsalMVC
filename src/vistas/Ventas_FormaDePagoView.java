@@ -5,7 +5,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Rectangle;
+import java.util.Enumeration;
 
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -20,6 +22,8 @@ public class Ventas_FormaDePagoView extends JPanel {
 	private JPanel btnPanel;
 	
 	private JLabel lblTitulo;
+	
+	ButtonGroup bg;
 	
 	private JRadioButton rbEfectivo;
 	private JRadioButton rbTarjeta;
@@ -55,7 +59,7 @@ public class Ventas_FormaDePagoView extends JPanel {
 		rbTarjeta.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		//Agrego los radio buttons a un grupo para que solo pueda seleccionarse uno
-		ButtonGroup bg = new ButtonGroup();
+		bg = new ButtonGroup();
 		bg.add(rbEfectivo);
 		bg.add(rbTarjeta);
 		
@@ -76,11 +80,22 @@ public class Ventas_FormaDePagoView extends JPanel {
 		return btnConfirmarCompra;
 	}
 	
-	public String getTextRbEfectivo() {
-		return rbEfectivo.getActionCommand();
-	}
+	 public String getSelectedButtonText() {
+	        for (Enumeration<AbstractButton> buttons = bg.getElements(); buttons.hasMoreElements();) {
+	            AbstractButton button = buttons.nextElement();
+
+	            if (button.isSelected()) {
+	                return button.getText();
+	            }
+	        }
+	        return null;
+	    }
 	
-	public String getTextRbTarjeta() {
-		return rbTarjeta.getActionCommand();
-	}
+//	public String getTextRbEfectivo() {
+//		return rbEfectivo.getActionCommand();
+//	}
+	
+//	public String getTextRbTarjeta() {
+//		return rbTarjeta.getActionCommand();
+//	}
 }

@@ -97,7 +97,7 @@ public class VentasTableView extends JPanel {
 		data[2] = this.tableModel.getValueAt(selectedRow, 2);
 		data[3] = this.tableModel.getValueAt(selectedRow, 3);
 		data[4] = this.tableModel.getValueAt(selectedRow, 4);
-		data[5] = this.tableModel.getValueAt(selectedRow, 5);
+		data[5] = this.tableModel.getValueAt(selectedRow, 5); //TODO: Borrar si no funciona
 		
 		return data;
 	}
@@ -105,5 +105,9 @@ public class VentasTableView extends JPanel {
 	public void setTableModel(List<Vuelo> lista) {
 		this.tableModel.setList(lista);
 		this.tableModel.fireTableDataChanged();
+	}
+	
+	public JButton getBtnComprar() {
+		return btnComprar;
 	}
 }

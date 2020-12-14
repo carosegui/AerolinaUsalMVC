@@ -72,7 +72,7 @@ public class VentasFormView extends JPanel {
 		Box hb2 = Box.createHorizontalBox();
 		
 		btnBuscarVuelos = new JButton("Buscar vuelos");
-		btnBuscarVuelos.setPreferredSize(new Dimension(40, 15));
+		btnBuscarVuelos.setPreferredSize(new Dimension(40, 20));
 		
 		hb2.add(btnBuscarVuelos);
 		

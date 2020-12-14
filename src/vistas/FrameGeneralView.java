@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Rectangle;
 import java.util.List;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -447,18 +448,26 @@ public class FrameGeneralView extends JFrame {
 		this.ventasTablePanel.setTableModel(lista);
 	}
 	
+	public JButton getBtnComprar_Ventas() {
+		return ventasTablePanel.getBtnComprar();
+	}
+	
 	//Metodos Ventas Forma de pago  --------------------------------------------------------------------
 	public JButton getBtnConfirmarCompra_Ventas() {
 		return ventas_FormaDePagoPanel.getBtnConfirmarCompra();
 	}
 	
-	public String getTextRbEfectivo_Ventas() {
-		return ventas_FormaDePagoPanel.getTextRbEfectivo();
+	public String getSelectedButtonText_Ventas() {
+		return ventas_FormaDePagoPanel.getSelectedButtonText();
 	}
 	
-	public String getTextRbTarjeta_Ventas() {
-		return ventas_FormaDePagoPanel.getTextRbTarjeta();
-	}
+//	public String getTextRbEfectivo_Ventas() {
+//		return ventas_FormaDePagoPanel.getTextRbEfectivo();
+//	}
+//	
+//	public String getTextRbTarjeta_Ventas() {
+//		return ventas_FormaDePagoPanel.getTextRbTarjeta();
+//	}
 	
 	//Botones menu bar --------------------------------------------------------------------
 	public JButton getBtnClientes() {
