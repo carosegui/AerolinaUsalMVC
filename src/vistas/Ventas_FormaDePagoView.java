@@ -1,5 +1,9 @@
 package vistas;
 
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Rectangle;
 
 import javax.swing.ButtonGroup;
@@ -8,10 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
-
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.Dimension;
 
 public class Ventas_FormaDePagoView extends JPanel {
 

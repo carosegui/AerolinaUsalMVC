@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.sql.Date;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -65,9 +66,9 @@ public class ClientesFormView extends JPanel {
 //	private JTextField txtFechaVencimiento;
 	private JTextField txtPais_pasaporte;
 	
-	private JDatePickerImpl dateFechaNac;
-	private JDatePickerImpl dateFechaEmision;
-	private JDatePickerImpl dateFechaVencimiento;
+	private DatePicker dateFechaNac;
+	private DatePicker dateFechaEmision;
+	private DatePicker dateFechaVencimiento;
 	
 	private JButton btnOk;
 	private JButton btnCancelar;
@@ -157,7 +158,7 @@ public class ClientesFormView extends JPanel {
 		dateFechaNac = DatePicker.getDatePicker();
 		
 		panelInferior.add(lblFechaNac);
-		panelInferior.add(dateFechaNac);
+		panelInferior.add(dateFechaNac.getDatePickerImpl());
 		
 		//Row 6 ------
 		lblEmail = new JLabel("Email:", JLabel.TRAILING);
@@ -313,7 +314,7 @@ public class ClientesFormView extends JPanel {
 		dateFechaEmision = DatePicker.getDatePicker();
 		
 		panelInferior.add(lblFechaEmision);
-		panelInferior.add(dateFechaEmision);
+		panelInferior.add(dateFechaEmision.getDatePickerImpl());
 	
 		//Row 22 ------
 		lblFechaVencimiento = new JLabel("Fecha vencimiento:", JLabel.TRAILING);
@@ -322,7 +323,7 @@ public class ClientesFormView extends JPanel {
 		dateFechaVencimiento = DatePicker.getDatePicker();
 		
 		panelInferior.add(lblFechaVencimiento);
-		panelInferior.add(dateFechaVencimiento);
+		panelInferior.add(dateFechaVencimiento.getDatePickerImpl());
 	
 		//Row 23 ------
 		lblPais_pasaporte = new JLabel("País:", JLabel.TRAILING);
@@ -344,7 +345,9 @@ public class ClientesFormView extends JPanel {
 		txtApellidos.setText((String) data[1]);
 		txtDni.setText((String) data[2]);
 		txtCuitCuil.setText((String) data[3]);
-//		dateFechaNac.getModel().setValue(data[4]); 		//TODO: Arreglar fechas
+		
+		dateFechaNac.setModelValue((Date) data[4]);	//TODO: Ver si funciona
+		
 		txtEmail.setText((String) data[5]);
 		txtTelefonoPersonal.setText((String) data[6]);
 		txtTelefonoCelular.setText((String) data[7]);
@@ -357,8 +360,10 @@ public class ClientesFormView extends JPanel {
 		txtDirProvincia.setText((String) data[14]);
 		txtNumero.setText((String) data[15]);
 		txtAutoridadEmision.setText((String) data[16]);
-//		dateFechaEmision.getModel().setValue(data[17]);
-//		dateFechaVencimiento.getModel().setValue(data[18]);
+		
+		dateFechaEmision.setModelValue((Date) data[17]); //TODO: Ver si funciona
+		dateFechaVencimiento.setModelValue((Date) data[18]); //TODO: Ver si funciona
+		
 		txtPais_pasaporte.setText((String) data[19]);
 	}
 	
@@ -431,15 +436,19 @@ public class ClientesFormView extends JPanel {
 	}
 	
 	public Object getDateFechaNac() {
-		return dateFechaNac.getModel().getValue();
+		return dateFechaNac.getDatePickerImpl().getModel().getValue();
 	}
 	
 	public Object getDateFechaEmision() {
-		return dateFechaEmision.getModel().getValue();
+		return dateFechaEmision.getDatePickerImpl().getModel().getValue();
 	}
 	
+//	public void setdate() {
+//		this.dateFechaNac.getModel().setDate(2, 3, 4);
+//	}
+	
 	public Object getDateFechaVencimiento() {
-		return dateFechaVencimiento.getModel().getValue();
+		return dateFechaVencimiento.getDatePickerImpl().getModel().getValue();
 	}
 	
 	public JButton getBtnOk() {

@@ -2,6 +2,7 @@ package vistas.forms;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.sql.Date;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -34,8 +35,8 @@ public class VuelosFormView extends JPanel {
 	private JTextField txtAeropuertoLlegada;
 	private JTextField txtAeropuertoSalida;
 	
-	private JDatePickerImpl dateFechaSalida;
-	private JDatePickerImpl dateFechaLlegada;
+	private DatePicker dateFechaSalida;
+	private DatePicker dateFechaLlegada;
 	
 	private JButton btnOk;
 	private JButton btnCancelar;
@@ -96,7 +97,7 @@ public class VuelosFormView extends JPanel {
 		
 		hb3.add(lblFechaSalida);
 		hb3.add(Box.createHorizontalStrut(15));
-		hb3.add(dateFechaSalida);
+		hb3.add(dateFechaSalida.getDatePickerImpl());
 		
 		//Row 5 ------
 		Box hb4 = Box.createHorizontalBox();
@@ -109,7 +110,7 @@ public class VuelosFormView extends JPanel {
 		
 		hb4.add(lblFechaLlegada);
 		hb4.add(Box.createHorizontalStrut(15));
-		hb4.add(dateFechaLlegada);
+		hb4.add(dateFechaLlegada.getDatePickerImpl());
 		
 		//Row 6 ------
 		Box hb5 = Box.createHorizontalBox();
@@ -209,8 +210,10 @@ public class VuelosFormView extends JPanel {
 	public void setSelectedRow(Object data[]) {
 		txtNumero.setText((String) data[0]);
 		txtCantAsientos.setText((String) data[1]);
-//		dateFechaSalida.getModel().setValue(data[2]);	 TODO:Arreglar cast de fechas
-//		dateFechaLlegada.getModel().setValue(data[3]);
+		
+		dateFechaSalida.setModelValue((Date) data[2]); //TODO: Ver si funciona
+		dateFechaLlegada.setModelValue((Date) data[3]);
+		
 		txtTiempo.setText((String) data[4]);
 		txtAerolinea.setText((String) data[5]);
 		txtAeropuertoSalida.setText((String) data[6]);
@@ -242,11 +245,11 @@ public class VuelosFormView extends JPanel {
 	}
 	
 	public Object getDateFechaSalida() {
-		return dateFechaSalida.getModel().getValue();
+		return dateFechaSalida.getDatePickerImpl().getModel().getValue();
 	}
 	
 	public Object getDateFechaLlegada() {
-		return dateFechaLlegada.getModel().getValue();
+		return dateFechaLlegada.getDatePickerImpl().getModel().getValue();
 	}
 	
 	public JButton getBtnOk_Vuelos() {
