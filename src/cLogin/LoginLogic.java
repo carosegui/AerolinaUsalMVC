@@ -10,7 +10,7 @@ import vistas.FrameGeneralView;
 
 public class LoginLogic {
 	
-	public int userID;
+	public static int userID;
 	
 	// CAMBIAR A CONTROLLER
 	public boolean verificarLogin(String usuario, String clave){
@@ -42,5 +42,9 @@ public class LoginLogic {
 		
 		
 	}
+	
+	
+	
+	
 	
 }

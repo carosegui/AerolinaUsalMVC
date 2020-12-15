@@ -1,5 +1,7 @@
 package cVentas;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,17 +9,26 @@ import javax.swing.DefaultComboBoxModel;
 
 import com.mysql.fabric.xmlrpc.base.Array;
 
+import cLogin.LoginLogic;
 import dao.interfaces.aeropuerto.AerolineaDao;
 import dao.interfaces.aeropuerto.AeropuertoDAO;
+import dao.interfaces.aeropuerto.UsuarioDAO;
+import dao.interfaces.aeropuerto.VentaDAO;
 import dao.interfaces.aeropuerto.VueloDAO;
+import dao.interfaces.cliente.ClienteDAO;
 import dao.jdbc.JdbcDaoFactory;
 import dao.jdbc.aeropuerto.JdbcAerolineaDao;
 import dao.jdbc.aeropuerto.JdbcAeropuertoDao;
+import dao.jdbc.aeropuerto.JdbcUsuarioDao;
+import dao.jdbc.aeropuerto.JdbcVentaDao;
 import dao.jdbc.aeropuerto.JdbcVueloDao;
+import dao.jdbc.cliente.JdbcClienteDao;
 import model.aeropuerto.Aerolinea;
 import model.aeropuerto.Aeropuerto;
+import model.aeropuerto.Usuario;
 import model.aeropuerto.Venta;
 import model.aeropuerto.Vuelo;
+import model.cliente.Cliente;
 
 public class VentasLogic {
 
@@ -101,18 +112,33 @@ public class VentasLogic {
 		
 		int vueloid = Integer.parseInt(list.get(5));
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
-			
+			VentaDAO ventaDAO = f.getDao(JdbcVentaDao.class);
 			VueloDAO vueloDao = f.getDao(JdbcVueloDao.class);
 			AerolineaDao aerolineaDAO = f.getDao(JdbcAerolineaDao.class);
-			
+			ClienteDAO clienteDAO = f.getDao(JdbcClienteDao.class);
 		
 			Vuelo vuelo = vueloDao.get(vueloid);
 			
 			Aerolinea aerolinea = aerolineaDAO.get(vuelo.getAerolinea().getIdAerolinea());
 			
+			Cliente cliente = clienteDAO.get(LoginLogic.userID);
+			
+			Date date = new Date(vueloid);  
+            Timestamp ts=new Timestamp(date.getTime());
+			
+            System.out.println(ts);
+            
+            Venta v = new Venta(ts, pago, cliente, vuelo, aerolinea);
+			
+          System.out.println(v.toString());
+            
+			ventaDAO.insert(v);
 			
 		}
-		//Venta v = new Venta(fecHsVenta, formaPago, cliente, vuelo, aerolinea);
+		
+		
+		
+		
 		//CREAR UNA VENTA
 		
 		
@@ -122,7 +148,9 @@ public class VentasLogic {
 		
 	}
 	
-	
+	public void updateVentas() {
+		
+	}
 	
 	
 	

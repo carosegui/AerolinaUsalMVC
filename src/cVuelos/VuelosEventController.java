@@ -17,7 +17,9 @@ public class VuelosEventController implements ActionListener  {
 		this.view.setTableModel_Vuelos(this.logic.getAllvuelos());
 		view.btnVuelos();
 		view.getBtnOk_VUelossForm().addActionListener(this);
-		
+		view.getBtnBorrar_Vuelos().addActionListener(this);
+		view.getBtnIngresar_Vuelos().addActionListener(this);
+		view.getBtnModificar_Vuelos().addActionListener(this);
 	}
 	
 	@Override
@@ -35,7 +37,20 @@ public class VuelosEventController implements ActionListener  {
 			int id_aeropuerto_llegada = Integer.parseInt(view.getTextTxtAeropuertoLlegada_Vuelos());	
 			
 			logic.InsertarVuelo(nro_vuelo, cant_asientos, fecha_salida, fecha_llegada, tiempo_vuelo, id_aerolinea, id_aeropuerto_salida, id_aeropuerto_llegada);
+			logic.updateVuelos(view);
+			view.btnVuelos();
+		}else if(e.getSource() == view.getBtnBorrar_Vuelos()) {
+			
+			logic.borrarVuelo(view.getSelectedRow_Vuelos());
+			logic.updateVuelos(view);
+		}else if(e.getSource() == view.getBtnIngresar_Vuelos()){
+			
+			view.displayVuelosForm();
+		
+		}else if(e.getSource() == view.getBtnModificar_Vuelos()) {
+			logic.modificarVuelo(view, view.getSelectedRow_Vuelos());
 		}
+		
 		
 		
 		
