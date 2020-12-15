@@ -30,8 +30,8 @@ public class LineasAereasFormView extends JPanel {
 	 * Create the panel.
 	 */
 	public LineasAereasFormView() {
-		setPreferredSize(new Dimension(450, 200));
-		setMinimumSize(new Dimension(520, 700));
+		setPreferredSize(new Dimension(450, 300));
+		setMinimumSize(new Dimension(450, 300));
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 		setLayout(new BorderLayout(0, 0));
 		
@@ -88,9 +88,9 @@ public class LineasAereasFormView extends JPanel {
 	
 	//Usar este metodo cuando se utiliza el boton SELECCIONAR
 	//Llena los JTextFields con los datos correspondientes
-	public void setSelectedRow(String data[]) {
-		txtNombre.setText(data[0]);
-		txtAlianza.setText(data[1]);
+	public void setSelectedRow(Object data[]) {
+		txtNombre.setText((String) data[0]);
+		txtAlianza.setText((String) data[1]);
 	}
 	
 	public String getTextTxtNombre() {

@@ -471,11 +471,11 @@ public class FrameGeneralView extends JFrame {
 		return lineasAereasFormPanel.getBtnCancelar();
 	}
 	
-	public String[] getSelectedRow_LineasAereas() {
+	public Object[] getSelectedRow_LineasAereas() {
 		return this.lineasAereasTablePanel.getSelectedRow();
 	}
 	
-	public void setSelectedRow_LineasAeereas(String data[]) {
+	public void setSelectedRow_LineasAeereas(Object data[]) {
 		this.lineasAereasFormPanel.setSelectedRow(data);
 	}
 	

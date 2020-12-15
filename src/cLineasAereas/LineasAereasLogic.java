@@ -51,12 +51,13 @@ public class LineasAereasLogic {
 	
 	public  void borrarLineaAereaObject (Object[] tablerow) {
 		
-		int idVuelo = (int) tablerow[0];
+		int idAerolinea = Integer.parseInt(tablerow[2].toString());
 		
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
 			
-			VueloDAO vueloDAO = f.getDao(JdbcVueloDao.class);
-			vueloDAO.delete(idVuelo);
+			AerolineaDao aerolineaDAO = f.getDao(JdbcAerolineaDao.class);
+			aerolineaDAO.delete(idAerolinea);
+			
 	
 		}
 		

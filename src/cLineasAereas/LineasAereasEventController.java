@@ -34,10 +34,8 @@ public class LineasAereasEventController implements ActionListener{
 			view.btnLineasAereas();
 			
 		}else if(e.getSource() == view.getBtnBorrar_LineasAereas()) {
-			
-			
-			
-			
+			logic.borrarLineaAereaObject(view.getSelectedRow_LineasAereas());
+			logic.updateLineasAereas(view);
 		}
 		
 		

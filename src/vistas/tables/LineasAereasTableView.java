@@ -16,6 +16,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
 import model.aeropuerto.Aerolinea;
+import model.aeropuerto.Alianza;
 import tableModels.LineasAereasTableModel;
 import java.awt.Dimension;
 
@@ -116,13 +117,13 @@ public class LineasAereasTableView extends JPanel {
 	
 	//Usar este metodo cuando se utilice el boton SELECCIONAR
 	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<String>
-	public String[] getSelectedRow() {
-		String[] data = new String [3];
+	public Object[] getSelectedRow() {
+		Object[] data = new Object [3];
 		int selectedRow = this.table.getSelectedRow();
 		
 		data[0] = (String) this.tableModel.getValueAt(selectedRow, 0);
-		data[1] = (String) this.tableModel.getValueAt(selectedRow, 1);
-		data[2] = (String) this.tableModel.getValueAt(selectedRow, 2);
+		data[1] = (Alianza) this.tableModel.getValueAt(selectedRow, 1);
+		data[2] =  Integer.parseInt(this.tableModel.getValueAt(selectedRow, 2).toString());
 		
 		return data;	
 	}

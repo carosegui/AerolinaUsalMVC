@@ -2,7 +2,9 @@ package cVentas;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -10,20 +12,17 @@ import javax.swing.DefaultComboBoxModel;
 import cLogin.LoginLogic;
 import dao.interfaces.aeropuerto.AerolineaDao;
 import dao.interfaces.aeropuerto.AeropuertoDAO;
-import dao.interfaces.aeropuerto.UsuarioDAO;
 import dao.interfaces.aeropuerto.VentaDAO;
 import dao.interfaces.aeropuerto.VueloDAO;
 import dao.interfaces.cliente.ClienteDAO;
 import dao.jdbc.JdbcDaoFactory;
 import dao.jdbc.aeropuerto.JdbcAerolineaDao;
 import dao.jdbc.aeropuerto.JdbcAeropuertoDao;
-import dao.jdbc.aeropuerto.JdbcUsuarioDao;
 import dao.jdbc.aeropuerto.JdbcVentaDao;
 import dao.jdbc.aeropuerto.JdbcVueloDao;
 import dao.jdbc.cliente.JdbcClienteDao;
 import model.aeropuerto.Aerolinea;
 import model.aeropuerto.Aeropuerto;
-import model.aeropuerto.Usuario;
 import model.aeropuerto.Venta;
 import model.aeropuerto.Vuelo;
 import model.cliente.Cliente;
@@ -121,7 +120,9 @@ public class VentasLogic {
 			
 			Cliente cliente = clienteDAO.get(LoginLogic.userID);
 			
-			Date date = new Date(vueloid);  
+			//Date Now
+			Date date = new Date(System.currentTimeMillis());
+			
             Timestamp ts=new Timestamp(date.getTime());
 			
             System.out.println(ts);
