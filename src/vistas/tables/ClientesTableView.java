@@ -72,7 +72,7 @@ public class ClientesTableView extends JPanel {
 		this.add(btnSeleccionar);
 		
 		panelTabla = new JPanel();
-		panelTabla.setBounds(0, 119, 1216, 444);
+		panelTabla.setBounds(0, 119, 1216, 470);
 		this.add(panelTabla);
 	}
 	

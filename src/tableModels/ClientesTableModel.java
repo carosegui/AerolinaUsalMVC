@@ -115,9 +115,9 @@ public class ClientesTableModel extends AbstractTableModel{
 	      case 12:
 	          return preguntado.getDireccion().getCodigoPostal();
 			case 13:
-				return preguntado.getDireccion().getPais();
+				return preguntado.getDireccion().getPais().getNombrePais();
 			case 14:
-				return preguntado.getDireccion().getProvincia();
+				return preguntado.getDireccion().getProvincia().getNombreProvincia();
 			case 15:
 				return preguntado.getPasaporte().getNroPasaporte();
 			case 16:
@@ -127,7 +127,7 @@ public class ClientesTableModel extends AbstractTableModel{
 	      case 18:
 	          return preguntado.getPasaporte().getFechaVencimiento();
 			case 19:
-				return preguntado.getPasaporte().getPais();
+				return preguntado.getPasaporte().getPais().getNombrePais();
 	      default:
 	            return "[no]";
 		 }

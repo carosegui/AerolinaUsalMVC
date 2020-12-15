@@ -35,7 +35,7 @@ public class VentasFormView extends JPanel {
 	}
 
 	private void initComponents() {
-		this.setPreferredSize(new Dimension(350, 220));
+		this.setPreferredSize(new Dimension(350, 280));
 		this.setBorder(new EmptyBorder(20, 10, 20, 10));
 		
 		Font f = new Font("Tahoma", Font.PLAIN, 15);
