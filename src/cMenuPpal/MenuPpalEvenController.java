@@ -15,8 +15,10 @@ public class MenuPpalEvenController implements ActionListener{
 	private FrameGeneralView view;
 	
 	public MenuPpalEvenController(FrameGeneralView view) {
+		
 		this.view = view;
-		VuelosEventController v = new VuelosEventController(view);
+		view.initMenuBar();
+		ClientesEventController c = new ClientesEventController(view);
 		view.btnClientes();
 		view.getBtnVentas().addActionListener(this);
 		view.getBtnClientes().addActionListener(this);
