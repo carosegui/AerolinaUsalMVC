@@ -71,8 +71,8 @@ public class FrameGeneralView extends JFrame {
 		setBounds(0, 0, 450, 300);
 		setLocationRelativeTo(null);
 		
-		//TODO: Iniciar una vez q paso el Login
-		initMenuBar();
+		// Iniciar una vez q paso el Login
+		//initMenuBar();
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(10, 0, 0, 0));
