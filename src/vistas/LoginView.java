@@ -22,20 +22,7 @@ public class LoginView extends JPanel {
 	
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginView frame = new LoginView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
+		
 	public LoginView() {
 		initComponents();
 	}

@@ -28,7 +28,7 @@ public class VuelosTableModel extends AbstractTableModel{
 	public String getColumnName(int column) {
 		switch (column) {
          	case 0:
-         		return "NUMERO";
+         		return "NRO. VUELO";
          	case 1:
          		return "CANTIDAD ASIENTOS";
          	case 2:
@@ -63,7 +63,7 @@ public class VuelosTableModel extends AbstractTableModel{
 		Vuelo preguntado = vuelos.get(rowIndex);
 		switch (columnIndex) {
 	        case 0:
-	            return preguntado.getNroVuelo();
+	            return preguntado.getIdVuelo();
 	        case 1:
 	            return preguntado.getCantAsientos();
 	        case 2:

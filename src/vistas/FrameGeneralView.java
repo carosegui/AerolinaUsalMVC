@@ -58,22 +58,6 @@ public class FrameGeneralView extends JFrame {
 	private CardLayout cardLayout;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FrameGeneralView frame = new FrameGeneralView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public FrameGeneralView() {
