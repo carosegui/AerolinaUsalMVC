@@ -37,10 +37,9 @@ public class VentasTableModel extends AbstractTableModel{
          	case 3:
          		return "FECHA LLEGADA";
          	case 4:
-         		return "AEROLINEA";         		
-         	default:
-         		return "[no]";
+         		return "AEROLINEA";
 		}
+		return null;
 	}
 	
 	@Override
