@@ -1,7 +1,7 @@
 package util.datePicker;
 
-import java.security.Timestamp;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.jdatepicker.impl.JDatePanelImpl;
@@ -26,7 +26,7 @@ public class DatePicker {
 	}
 	
 	public void setModelValue(Timestamp value) {
-		this.model.setValue((Date) value.getTimestamp());
+		this.model.setValue(new Date(value.getTime()));
 	}
 	
 	public static DatePicker getDatePicker() {

@@ -2,16 +2,13 @@ package vistas.forms;
 
 import java.awt.Dimension;
 import java.awt.Font;
-import java.security.Timestamp;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import org.jdatepicker.impl.JDatePickerImpl;
 
 import util.datePicker.DatePicker;
 
