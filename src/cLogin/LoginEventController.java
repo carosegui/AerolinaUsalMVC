@@ -34,7 +34,7 @@ public class LoginEventController implements ActionListener{
 		            	if(logic.verificarLogin(user, clave)) {
 		            		
 		            		MenuPpalEvenController menu = new MenuPpalEvenController(view);
-		            		view.initMenuBar();
+//		            		view.initMenuBar();
 		            		
 		            	
 		            	}else {
