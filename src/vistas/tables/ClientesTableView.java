@@ -22,6 +22,11 @@ import java.awt.Dimension;
 
 public class ClientesTableView extends JPanel {
 	
+	private JButton btnInsertar;
+	private JButton btnModificar;
+	private JButton btnBorrar;
+	private JButton btnSeleccionar;
+	
 	private JTable table;
 	private ClientesTableModel tableModel;
 	private JScrollPane scrollPane;
@@ -63,22 +68,22 @@ public class ClientesTableView extends JPanel {
 		lblTituloClientes.setBounds(525, 0, 110, 63);
 		this.add(lblTituloClientes);
 		
-		JButton btnInsertar = new JButton("Insertar");
+		btnInsertar = new JButton("Insertar");
 		btnInsertar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnInsertar.setBounds(335, 74, 89, 23);
 		this.add(btnInsertar);
 		
-		JButton btnModificar = new JButton("Modificar");
+		btnModificar = new JButton("Modificar");
 		btnModificar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnModificar.setBounds(457, 74, 103, 23);
 		this.add(btnModificar);
 		
-		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("Borrar");
 		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnBorrar.setBounds(597, 74, 89, 23);
 		this.add(btnBorrar);
 		
-		JButton btnSeleccionar = new JButton("Seleccionar");
+		btnSeleccionar = new JButton("Seleccionar");
 		btnSeleccionar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnSeleccionar.setBounds(709, 74, 122, 23);
 		this.add(btnSeleccionar);
@@ -159,4 +164,22 @@ public class ClientesTableView extends JPanel {
 		this.tableModel.setList(lista);
 		this.tableModel.fireTableDataChanged();
 	}
+
+	public JButton getBtnInsertar() {
+		return btnInsertar;
+	}
+
+	public JButton getBtnModificar() {
+		return btnModificar;
+	}
+
+	public JButton getBtnBorrar() {
+		return btnBorrar;
+	}
+
+	public JButton getBtnSeleccionar() {
+		return btnSeleccionar;
+	}
+	
+	
 }

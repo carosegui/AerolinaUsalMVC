@@ -138,4 +138,22 @@ public class VuelosTableView extends JPanel{
 		this.tableModel.setList(lista);
 		this.tableModel.fireTableDataChanged();
 	}
+
+	public JButton getBtnIngresar() {
+		return btnIngresar;
+	}
+
+	public JButton getBtnModificar() {
+		return btnModificar;
+	}
+
+	public JButton getBtnBorrar() {
+		return btnBorrar;
+	}
+
+	public JButton getBtnSeleccionar() {
+		return btnSeleccionar;
+	}
+	
+	
 }

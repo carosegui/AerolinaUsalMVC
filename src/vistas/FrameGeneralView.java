@@ -284,6 +284,22 @@ public class FrameGeneralView extends JFrame {
 		this.vuelosTablePanel.setTableModel(lista);
 	}
 	
+	public JButton getBtnIngresar_Vuelos() {
+		return vuelosTablePanel.getBtnIngresar();
+	}
+
+	public JButton getBtnModificar_Vuelos() {
+		return vuelosTablePanel.getBtnModificar();
+	}
+
+	public JButton getBtnBorrar_Vuelos() {
+		return vuelosTablePanel.getBtnBorrar();
+	}
+
+	public JButton getBtnSeleccionar_Vuelos() {
+		return vuelosTablePanel.getBtnSeleccionar();
+	}
+	
 	//Metodos panel Clientes Form --------------------------------------------------------------------
 	public String getTextTxtNombre_ClientesForm() {
 		return clientesFormPanel.getTextTxtNombre();
@@ -385,6 +401,22 @@ public class FrameGeneralView extends JFrame {
 		this.clientesTablePanel.setTableModel(lista);
 	}
 	
+	public JButton getBtnInsertar_Clientes() {
+		return clientesTablePanel.getBtnInsertar();
+	}
+
+	public JButton getBtnModificar_Clientes() {
+		return clientesTablePanel.getBtnModificar();
+	}
+
+	public JButton getBtnBorrar_Clientes() {
+		return clientesTablePanel.getBtnBorrar();
+	}
+
+	public JButton getBtnSeleccionar_Clientes() {
+		return clientesTablePanel.getBtnSeleccionar();
+	}
+	
 	//Metodos Lineas Aereas --------------------------------------------------------------------
 	public String getTextTxtNombre_LineasAereas() {
 		return lineasAereasFormPanel.getTextTxtNombre();
@@ -412,6 +444,22 @@ public class FrameGeneralView extends JFrame {
 	
 	public void setTableModel_LineasAereas(List<Aerolinea> lista) {
 		this.lineasAereasTablePanel.setTableModel(lista);
+	}
+	
+	public JButton getBtnInsertar_LineasAereas() {
+		return lineasAereasTablePanel.getBtnInsertar();
+	}
+
+	public JButton getBtnModificar_LineasAereas() {
+		return lineasAereasTablePanel.getBtnModificar();
+	}
+
+	public JButton getBtnBorrar_LineasAereas() {
+		return lineasAereasTablePanel.getBtnBorrar();
+	}
+
+	public JButton getBtnSeleccionar_LineasAereas() {
+		return lineasAereasTablePanel.getBtnSeleccionar();
 	}
 	
 	//Metodos Ventas Form --------------------------------------------------------------------

@@ -146,4 +146,22 @@ public class LineasAereasTableView extends JPanel {
 		this.tableModel.setList(lista);
 		this.tableModel.fireTableDataChanged();
 	}
+
+	public JButton getBtnInsertar() {
+		return btnInsertar;
+	}
+
+	public JButton getBtnModificar() {
+		return btnModificar;
+	}
+
+	public JButton getBtnBorrar() {
+		return btnBorrar;
+	}
+
+	public JButton getBtnSeleccionar() {
+		return btnSeleccionar;
+	}
+	
+	
 }
