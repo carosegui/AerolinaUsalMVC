@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -346,7 +347,7 @@ public class ClientesFormView extends JPanel {
 		txtDni.setText((String) data[2]);
 		txtCuitCuil.setText((String) data[3]);
 		
-		dateFechaNac.setModelValue((Date) data[4]);	//TODO: Ver si funciona
+		dateFechaNac.setModelValue((Timestamp) data[4]);	//TODO: Ver si funciona
 		
 		txtEmail.setText((String) data[5]);
 		txtTelefonoPersonal.setText((String) data[6]);
@@ -361,8 +362,8 @@ public class ClientesFormView extends JPanel {
 		txtNumero.setText((String) data[15]);
 		txtAutoridadEmision.setText((String) data[16]);
 		
-		dateFechaEmision.setModelValue((Date) data[17]); //TODO: Ver si funciona
-		dateFechaVencimiento.setModelValue((Date) data[18]); //TODO: Ver si funciona
+		dateFechaEmision.setModelValue((Timestamp) data[17]); //TODO: Ver si funciona
+		dateFechaVencimiento.setModelValue((Timestamp) data[18]); //TODO: Ver si funciona
 		
 		txtPais_pasaporte.setText((String) data[19]);
 	}
