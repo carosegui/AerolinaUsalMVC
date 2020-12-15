@@ -2,9 +2,11 @@ package cVentas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 
+import model.aeropuerto.Vuelo;
 import vistas.FrameGeneralView;
 
 public class VentasEventController implements ActionListener {
@@ -19,20 +21,45 @@ public class VentasEventController implements ActionListener {
 			view.getBtnBuscarVuelos_Ventas().addActionListener(this);
 			view.getOrigenComboBox().setModel(logic.getDml());
 			view.getDestinoComboBox().setModel(logic.getDml());
+			view.getBtnConfirmarCompra_Ventas().addActionListener(this);
+			view.getBtnOk_VUelossForm().addActionListener(this);
+			view.getBtnComprar_Ventas().addActionListener(this);
 			
-		}
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource() == view.getBtnBuscarVuelos_Ventas()) {
 			
-			this.view.setTableModel_Ventas(logic.verificarVuelos(view.getTextCAeropuertoOrigen_Ventas(), view.getTextCAeropuertoDestino_Ventas()));
-			view.displayVentasTable();
 			
+			List<Vuelo> list = logic.verificarVuelos(view.getTextCAeropuertoOrigen_Ventas(), view.getTextCAeropuertoDestino_Ventas());
+			if(!list.isEmpty()) {
+			this.view.setTableModel_Ventas(list);
+			view.displayVentasTable();
+			}else
+		
+			this.view.setTxtLblMensajeError_Ventas("No existen vuelos para esa combinación.");
+			
+			
+		}else if(e.getSource() == view.getBtnComprar_Ventas()) {
+			logic.seleccionarVuelo(view.getSelectedRow_Ventas());
+			view.displayVentasFormaDePago();
+			
+		}else if(e.getSource() == view.getBtnConfirmarCompra_Ventas()) {
+		
+			System.out.println(view.getSelectedButtonText_Ventas());
+		}
 		}
 		
 	}
 	
 	
-}
+
+
+
+
+
+
+
+

@@ -5,12 +5,15 @@ import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 
+import com.mysql.fabric.xmlrpc.base.Array;
+
 import dao.interfaces.aeropuerto.AeropuertoDAO;
 import dao.interfaces.aeropuerto.VueloDAO;
 import dao.jdbc.JdbcDaoFactory;
 import dao.jdbc.aeropuerto.JdbcAeropuertoDao;
 import dao.jdbc.aeropuerto.JdbcVueloDao;
 import model.aeropuerto.Aeropuerto;
+import model.aeropuerto.Venta;
 import model.aeropuerto.Vuelo;
 
 public class VentasLogic {
@@ -56,7 +59,7 @@ public class VentasLogic {
 				
 				if(listaAllVuelos.get(i).getAeropuertoSalida().getCiudad().contentEquals(origen) && listaAllVuelos.get(i).getAeropuertoLlegada().getCiudad().contentEquals(destino)) { 
 					listaVuelosElegidos.add(listaAllVuelos.get(i));
-					System.out.println(listaAllVuelos.get(i).getAeropuertoLlegada().getCiudad());
+					
 					
 				}
 		}
@@ -68,8 +71,49 @@ public class VentasLogic {
 	}
 	
 	
+	public List<String> seleccionarVuelo(Object [] tablerow){
+		
+		
+		List<String> vuelo = new ArrayList<String>();
+		
+		for (int i = 0; i < tablerow.length; i++) {
+			vuelo.add(tablerow[i].toString());
+		}
+		
+		
+		if(vuelo.isEmpty()) {
+			System.out.println("Vuelo seleccionado Vacio!");
+		}
+		
+		
+		return vuelo;
+		
+		
+		
+		
+	}
+	
+	
+	public void crearVenta(List<String> list) {
+		
+		
+		//Venta v = new Venta(fecHsVenta, formaPago, cliente, vuelo, aerolinea);
+		//CREAR UNA VENTA
+		
+		
+		
+		//VUELOS
+		
+		
+	}
+	
+	
+	
 	
 	
 	
 	
 }
+
+
+
