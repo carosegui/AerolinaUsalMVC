@@ -7,8 +7,6 @@ import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-
 import cLogin.LoginLogic;
 import dao.interfaces.aeropuerto.AerolineaDao;
 import dao.interfaces.aeropuerto.AeropuertoDAO;

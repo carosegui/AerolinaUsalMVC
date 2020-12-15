@@ -20,6 +20,7 @@ public class VuelosEventController implements ActionListener  {
 		view.getBtnBorrar_Vuelos().addActionListener(this);
 		view.getBtnIngresar_Vuelos().addActionListener(this);
 		view.getBtnModificar_Vuelos().addActionListener(this);
+		view.getBtnOk_VUelossFormModificar().addActionListener(this);
 	}
 	
 	@Override
@@ -48,7 +49,26 @@ public class VuelosEventController implements ActionListener  {
 			view.displayVuelosForm();
 		
 		}else if(e.getSource() == view.getBtnModificar_Vuelos()) {
+			view.displayVuelosFormModificar();
 			logic.modificarVuelo(view, view.getSelectedRow_Vuelos());
+			
+		}else if( e.getSource() == view.getBtnOk_VUelossFormModificar()) {
+			
+			String nro_vuelo = view.getTextTxtNumeroVuelo_VuelosModificar();
+			int cant_asientos = Integer.parseInt(view.getTextTxtCantAsientos_VuelosModificar());
+			System.out.println("LLEGO");
+			java.sql.Date fecha_salida = (Date) view.getDateFechaSalida_VuelosModificar();
+			java.sql.Date fecha_llegada = (Date) view.getDateFechaLlegada_VuelosModificar();
+			System.out.println("LLEGO");
+			int tiempo_vuelo = Integer.parseInt(view.getTextTxtTiempo_VuelosModificar());
+			
+//			int id_aerolinea = Integer.parseInt(view.getTextTxtAerolinea_VuelosModificar());
+//			int id_aeropuerto_salida = Integer.parseInt(view.getTextTxtAeropuertoSalida_VuelosModificar());
+//			int id_aeropuerto_llegada = Integer.parseInt(view.getTextTxtAeropuertoLlegada_VuelosModificar());	
+			
+			logic.OKmodificar(nro_vuelo, cant_asientos, fecha_salida, fecha_llegada, tiempo_vuelo);
+			logic.updateVuelos(view);
+			view.btnVuelos();
 		}
 		
 		

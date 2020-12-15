@@ -18,6 +18,7 @@ public class LineasAereasEventController implements ActionListener{
 		this.view.getBtnBorrar_LineasAereas().addActionListener(this);
 		this.view.getBtnModificar_LineasAereas().addActionListener(this);
 		this.view.getBtnInsertar_LineasAereas().addActionListener(this);
+		this.view.getBtnOk_LineasAereas().addActionListener(this);
 	}
 	
 	
@@ -25,6 +26,18 @@ public class LineasAereasEventController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == view.getBtnInsertar_LineasAereas()) {
 			view.displayLineasAereasForm();
+			
+		}else if(e.getSource() == view.getBtnOk_LineasAereas()) {
+			
+			logic.insertar(view.getTextTxtNombre_LineasAereas());
+			logic.updateLineasAereas(view);
+			view.btnLineasAereas();
+			
+		}else if(e.getSource() == view.getBtnBorrar_LineasAereas()) {
+			
+			
+			
+			
 		}
 		
 		

@@ -3,10 +3,13 @@ package cLineasAereas;
 import java.util.List;
 
 import dao.interfaces.aeropuerto.AerolineaDao;
+import dao.interfaces.aeropuerto.VueloDAO;
 import dao.jdbc.JdbcDaoFactory;
 import dao.jdbc.aeropuerto.JdbcAerolineaDao;
+import dao.jdbc.aeropuerto.JdbcVueloDao;
 import model.aeropuerto.Aerolinea;
 import model.aeropuerto.Alianza;
+import vistas.FrameGeneralView;
 
 public class LineasAereasLogic {
 
@@ -21,7 +24,7 @@ public class LineasAereasLogic {
 	}
 	
 	
-	public void insertar(String nombre, String alianza){
+	public void insertar(String nombre){
 		
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
 			
@@ -34,5 +37,32 @@ public class LineasAereasLogic {
 		
 	}
 	
+	public void updateLineasAereas(FrameGeneralView view) {
+		
+		try(JdbcDaoFactory f = new JdbcDaoFactory()){
+		
+		AerolineaDao aeroLinea = f.getDao(JdbcAerolineaDao.class);
+		
+		view.setTableModel_LineasAereas(aeroLinea.getAll());
+		}
+		
+	}
+	
+	
+	public  void borrarLineaAereaObject (Object[] tablerow) {
+		
+		int idVuelo = (int) tablerow[0];
+		
+		try(JdbcDaoFactory f = new JdbcDaoFactory()){
+			
+			VueloDAO vueloDAO = f.getDao(JdbcVueloDao.class);
+			vueloDAO.delete(idVuelo);
+	
+		}
+		
+		
+		
+		
+	}
 	
 }

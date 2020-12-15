@@ -1,6 +1,7 @@
 package cVuelos;
 
 import java.security.Timestamp;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,8 @@ import model.aeropuerto.Vuelo;
 import vistas.FrameGeneralView;
 
 public class VuelosLogic {
+	
+	public int idVuelo;
 
 	//METODO PARA INSERTAR VUELOS
 	public void InsertarVuelo(String nro_vuelo, int cant_asientos, java.sql.Date fecha_salida, java.sql.Date fecha_llegada,
@@ -84,15 +87,36 @@ public class VuelosLogic {
 	
 	public void modificarVuelo(FrameGeneralView view, Object [] tablerow) {
 		
-		int idVuelo = (int) tablerow[0];
-		view.setSelectedRow_Vuelos(view.getSelectedRow_Vuelos());
-		view.displayVuelosForm();
+		this.idVuelo = (int) tablerow[0];
+		view.setSelectedRow_VuelosModificar(view.getSelectedRow_Vuelos());
+		
+	}
+	
+	public void OKmodificar(String nro_vuelo, int cant_asientos, java.sql.Date fecha_salida, java.sql.Date fecha_llegada,
+			int tiempo_vuelo) {
+		
 		try(JdbcDaoFactory f = new JdbcDaoFactory()){
 		
-			VueloDAO vueloDAO = f.getDao(JdbcVueloDao.class);
+			final VueloDAO vueloDao = f.getDao(JdbcVueloDao.class);
+    		final AerolineaDao aerolineaDao = f.getDao(JdbcAerolineaDao.class);
+    		final AeropuertoDAO aeropuertoDao = f.getDao(JdbcAeropuertoDao.class);
+    		
+    		
+    		
+    		Aerolinea aerolinea = aerolineaDao.get(vueloDao.get(idVuelo).getAerolinea().getIdAerolinea());
+    		Aeropuerto salida = aeropuertoDao.get(vueloDao.get(idVuelo).getAeropuertoSalida().getIdAeropuerto());
+    		Aeropuerto llegada = aeropuertoDao.get(vueloDao.get(idVuelo).getAeropuertoLlegada().getIdAeropuerto());
+    		
+    	
+    		java.sql.Timestamp fechaSalida = new java.sql.Timestamp(fecha_salida.getTime());
+    		java.sql.Timestamp fechaLlegada= new java.sql.Timestamp(fecha_llegada.getTime());
+    		
+	  		Vuelo vuelo = new Vuelo(nro_vuelo,cant_asientos,fechaSalida,fechaLlegada,tiempo_vuelo,aerolinea, salida,llegada);
 			
 			
-			vueloDAO.update(idVuelo, vueloDAO.get(idVuelo));
+	
+			vueloDao.update(idVuelo, vuelo);
+			
 			
 		}
 	}
@@ -110,6 +134,9 @@ public class VuelosLogic {
 		}
 		
 	}
+
+
+
 	
 	
 }
