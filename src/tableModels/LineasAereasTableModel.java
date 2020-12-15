@@ -31,6 +31,8 @@ public class LineasAereasTableModel extends AbstractTableModel{
          		return "NOMBRE";
          	case 1:
          		return "ALIANZA";
+         	case 2:
+         		return "NRO. LINEA AEREA";
          	default:
          		return "[no]";
 		}
@@ -43,7 +45,7 @@ public class LineasAereasTableModel extends AbstractTableModel{
 
 	@Override
 	public int getColumnCount() {
-		return 2;
+		return 3;
 	}
 
 	@Override
@@ -54,6 +56,8 @@ public class LineasAereasTableModel extends AbstractTableModel{
 	            return preguntado.getNombreAerolinea();
 	        case 1:
 	            return preguntado.getAlianza();
+	        case 2:
+	        	return preguntado.getIdAerolinea();
 	        default:
 	            return "[no]";
 		}

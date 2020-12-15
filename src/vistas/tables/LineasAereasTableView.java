@@ -94,7 +94,7 @@ public class LineasAereasTableView extends JPanel {
 		 table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 		 headers();
 		 scrollPane = new JScrollPane(table);
-		 scrollPane.setBounds(221, 11, 251, 427);
+		 scrollPane.setBounds(0, 11, 656, 427);
 		 panelTabla.add(scrollPane);
 	}
 	
@@ -117,11 +117,12 @@ public class LineasAereasTableView extends JPanel {
 	//Usar este metodo cuando se utilice el boton SELECCIONAR
 	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<String>
 	public String[] getSelectedRow() {
-		String[] data = new String [2];
+		String[] data = new String [3];
 		int selectedRow = this.table.getSelectedRow();
 		
 		data[0] = (String) this.tableModel.getValueAt(selectedRow, 0);
 		data[1] = (String) this.tableModel.getValueAt(selectedRow, 1);
+		data[2] = (String) this.tableModel.getValueAt(selectedRow, 2);
 		
 		return data;	
 	}
