@@ -7,11 +7,14 @@ import javax.swing.DefaultComboBoxModel;
 
 import com.mysql.fabric.xmlrpc.base.Array;
 
+import dao.interfaces.aeropuerto.AerolineaDao;
 import dao.interfaces.aeropuerto.AeropuertoDAO;
 import dao.interfaces.aeropuerto.VueloDAO;
 import dao.jdbc.JdbcDaoFactory;
+import dao.jdbc.aeropuerto.JdbcAerolineaDao;
 import dao.jdbc.aeropuerto.JdbcAeropuertoDao;
 import dao.jdbc.aeropuerto.JdbcVueloDao;
+import model.aeropuerto.Aerolinea;
 import model.aeropuerto.Aeropuerto;
 import model.aeropuerto.Venta;
 import model.aeropuerto.Vuelo;
@@ -94,9 +97,21 @@ public class VentasLogic {
 	}
 	
 	
-	public void crearVenta(List<String> list) {
+	public void crearVenta(List<String> list, String pago) {
 		
+		int vueloid = Integer.parseInt(list.get(5));
+		try(JdbcDaoFactory f = new JdbcDaoFactory()){
+			
+			VueloDAO vueloDao = f.getDao(JdbcVueloDao.class);
+			AerolineaDao aerolineaDAO = f.getDao(JdbcAerolineaDao.class);
+			
 		
+			Vuelo vuelo = vueloDao.get(vueloid);
+			
+			Aerolinea aerolinea = aerolineaDAO.get(vuelo.getAerolinea().getIdAerolinea());
+			
+			
+		}
 		//Venta v = new Venta(fecHsVenta, formaPago, cliente, vuelo, aerolinea);
 		//CREAR UNA VENTA
 		

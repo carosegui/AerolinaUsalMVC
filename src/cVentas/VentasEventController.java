@@ -13,6 +13,7 @@ public class VentasEventController implements ActionListener {
 
 	private FrameGeneralView view;
 	private VentasLogic logic;
+	private List<String> vuelo;
 	public VentasEventController(FrameGeneralView view) {
 		
 			this.view = view;
@@ -43,12 +44,12 @@ public class VentasEventController implements ActionListener {
 			
 			
 		}else if(e.getSource() == view.getBtnComprar_Ventas()) {
-			logic.seleccionarVuelo(view.getSelectedRow_Ventas());
+			vuelo = logic.seleccionarVuelo(view.getSelectedRow_Ventas());
 			view.displayVentasFormaDePago();
 			
 		}else if(e.getSource() == view.getBtnConfirmarCompra_Ventas()) {
-		
-			System.out.println(view.getSelectedButtonText_Ventas());
+			logic.crearVenta(vuelo, view.getSelectedButtonText_Ventas());
+			
 		}
 		}
 		

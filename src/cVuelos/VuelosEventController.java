@@ -37,6 +37,8 @@ public class VuelosEventController implements ActionListener  {
 			logic.InsertarVuelo(nro_vuelo, cant_asientos, fecha_salida, fecha_llegada, tiempo_vuelo, id_aerolinea, id_aeropuerto_salida, id_aeropuerto_llegada);
 		}
 		
+		
+		
 	}
 
 }
