@@ -2,6 +2,7 @@ package vistas.forms;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.security.Timestamp;
 import java.sql.Date;
 
 import javax.swing.Box;
@@ -211,8 +212,8 @@ public class VuelosFormView extends JPanel {
 		txtNumero.setText((String) data[0].toString());
 		txtCantAsientos.setText((String) data[1].toString());
 		
-		dateFechaSalida.setModelValue((Date) data[2]); //TODO: Ver si funciona
-		dateFechaLlegada.setModelValue((Date) data[3]);
+		dateFechaSalida.setModelValue((Timestamp) data[2]); //TODO: Ver si funciona
+		dateFechaLlegada.setModelValue((Timestamp) data[3]);
 		
 		txtTiempo.setText((String) data[4].toString());
 		txtAerolinea.setText((String) data[5].toString());
