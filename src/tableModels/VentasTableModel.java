@@ -37,9 +37,12 @@ public class VentasTableModel extends AbstractTableModel{
          	case 3:
          		return "FECHA LLEGADA";
          	case 4:
-         		return "AEROLINEA";
+         		return "AEROLINEA";     
+         	case 5: 
+         		return "NRO. VUELO";
+         	default:
+         		return "[no]";
 		}
-		return null;
 	}
 	
 	@Override
@@ -67,7 +70,7 @@ public class VentasTableModel extends AbstractTableModel{
 	        case 4:
 	            return preguntado.getAerolinea().getNombreAerolinea();
 	        case 5: 
-	        	return preguntado.getIdVuelo(); //TODO: Borrar si no funciona
+	        	return preguntado.getIdVuelo();
 	        default:
 	            return "[no]";
 		}

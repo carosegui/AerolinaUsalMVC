@@ -77,8 +77,7 @@ public class VentasTableView extends JPanel {
 		 TableColumn tc = table.getColumnModel().getColumn(0);
 		 tc.setPreferredWidth(150);
 		 tc = table.getColumnModel().getColumn(1);
-		 tc.setPreferredWidth(150);
-		 
+		 tc.setPreferredWidth(150);		 
 	}
 	
 //	public void updateTable() {
@@ -89,7 +88,7 @@ public class VentasTableView extends JPanel {
 	//Usar este metodo cuando se utilice el boton COMPRAR
 	//Toma los valores de la fila seleccionada y los devuelve en forma de Array<Object>
 	public Object[] getSelectedRow() {
-		Object data[] = new Object [5];
+		Object data[] = new Object [6];
 		int selectedRow = this.table.getSelectedRow();
 		
 		data[0] = this.tableModel.getValueAt(selectedRow, 0);
