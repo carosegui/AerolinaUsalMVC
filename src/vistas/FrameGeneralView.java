@@ -21,6 +21,7 @@ import model.cliente.Cliente;
 import vistas.forms.ClientesFormView;
 import vistas.forms.LineasAereasFormView;
 import vistas.forms.VentasFormView;
+import vistas.forms.VuelosFormModificarView;
 import vistas.forms.VuelosFormView;
 import vistas.tables.ClientesTableView;
 import vistas.tables.LineasAereasTableView;
@@ -36,6 +37,7 @@ public class FrameGeneralView extends JFrame {
 	//Vuelos
 	private VuelosFormView vuelosFormPanel;
 	private VuelosTableView vuelosTablePanel;
+	private VuelosFormModificarView vuelosFormModificarPanel;
 	//Clientes
 	private ClientesTableView clientesTablePanel;
 	private ClientesFormView clientesFormPanel;
@@ -108,6 +110,9 @@ public class FrameGeneralView extends JFrame {
 		vuelosFormPanel = new VuelosFormView();
 		contentPane.add(vuelosFormPanel, "vuelosFormPanel");
 		
+		vuelosFormModificarPanel = new VuelosFormModificarView();
+		contentPane.add(vuelosFormModificarPanel, "vuelosFormModificarPanel");
+		
 		clientesTablePanel = new ClientesTableView();
 		contentPane.add(clientesTablePanel, "clientesTablePanel");
 		
@@ -149,6 +154,13 @@ public class FrameGeneralView extends JFrame {
 		cardLayout = (CardLayout) contentPane.getLayout();
 		cardLayout.show(contentPane, "vuelosFormPanel");
 		setBounds(new Rectangle(vuelosFormPanel.getPreferredSize()));
+		setLocationRelativeTo(null);
+	}
+	
+	public void displayVuelosFormModificar() {
+		cardLayout = (CardLayout) contentPane.getLayout();
+		cardLayout.show(contentPane, "vuelosFormModificarPanel");
+		setBounds(new Rectangle(vuelosFormModificarPanel.getPreferredSize()));
 		setLocationRelativeTo(null);
 	}
 	
@@ -282,6 +294,47 @@ public class FrameGeneralView extends JFrame {
 
 	public JButton getBtnSeleccionar_Vuelos() {
 		return vuelosTablePanel.getBtnSeleccionar();
+	}
+	
+	//Metodos panel Vuelos Modificar Form --------------------------------------------------------------------
+	
+	public String getTextTxtNumeroVuelo_VuelosModificar() {
+		return vuelosFormModificarPanel.getTextTxtNumero();
+	}
+	
+	public String getTextTxtCantAsientos_VuelosModificar() {
+		return vuelosFormModificarPanel.getTextTxtCantAsientos();
+	}
+	
+	public String getTextTxtTiempo_VuelosModificar() {
+		return vuelosFormModificarPanel.getTextTxtTiempo();
+	}
+	
+	public String getTextTxtAerolinea_VuelosModificar() {
+		return vuelosFormModificarPanel.getTextTxtAerolinea();
+	}
+	
+	public String getTextTxtAeropuertoLlegada_VuelosModificar() {
+		return vuelosFormModificarPanel.getTextTxtAeropuertoLlegada();
+	}
+	
+	public String getTextTxtAeropuertoSalida_VuelosModificar() {
+		return vuelosFormModificarPanel.getTextTxtAeropuertoSalida();
+	}
+	
+	public Object getDateFechaSalida_VuelosModificar() {
+		return vuelosFormModificarPanel.getDateFechaSalida();
+	}
+	
+	public Object getDateFechaLlegada_VuelosModificar() {
+		return vuelosFormModificarPanel.getDateFechaLlegada();
+	}
+		
+	public void setSelectedRow_VuelosModificar(Object data[]) {
+		this.vuelosFormModificarPanel.setSelectedRow(data);
+	}
+	public JButton getBtnOk_VUelossFormModificar() {
+		return vuelosFormModificarPanel.getBtnOk_Vuelos();
 	}
 	
 	//Metodos panel Clientes Form --------------------------------------------------------------------

@@ -17,6 +17,7 @@ import dao.jdbc.aeropuerto.JdbcVueloDao;
 import model.aeropuerto.Aerolinea;
 import model.aeropuerto.Aeropuerto;
 import model.aeropuerto.Vuelo;
+import vistas.FrameGeneralView;
 
 public class VuelosLogic {
 
@@ -61,6 +62,52 @@ public class VuelosLogic {
 			
 		}
 			return allVuelos;
+		
+	}
+	
+	public void borrarVuelo(Object [] tablerow) {
+		
+		int idVuelo = (int) tablerow[0];
+		
+		try(JdbcDaoFactory f = new JdbcDaoFactory()){
+			
+			VueloDAO vueloDAO = f.getDao(JdbcVueloDao.class);
+			vueloDAO.delete(idVuelo);
+	
+		}
+		
+		
+		
+		
+	}
+	
+	
+	public void modificarVuelo(FrameGeneralView view, Object [] tablerow) {
+		
+		int idVuelo = (int) tablerow[0];
+		view.setSelectedRow_Vuelos(view.getSelectedRow_Vuelos());
+		view.displayVuelosForm();
+		try(JdbcDaoFactory f = new JdbcDaoFactory()){
+		
+			VueloDAO vueloDAO = f.getDao(JdbcVueloDao.class);
+			
+			
+			vueloDAO.update(idVuelo, vueloDAO.get(idVuelo));
+			
+		}
+	}
+	
+	
+	
+	//ACTUALIZA LA VISTA
+	public void updateVuelos(FrameGeneralView view) {
+		
+		try(JdbcDaoFactory f = new JdbcDaoFactory()){
+		
+		VueloDAO vueloDAO = f.getDao(JdbcVueloDao.class);
+		
+		view.setTableModel_Vuelos(vueloDAO.getAll());
+		}
 		
 	}
 	

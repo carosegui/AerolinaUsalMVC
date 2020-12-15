@@ -6,6 +6,7 @@ import dao.interfaces.aeropuerto.AerolineaDao;
 import dao.jdbc.JdbcDaoFactory;
 import dao.jdbc.aeropuerto.JdbcAerolineaDao;
 import model.aeropuerto.Aerolinea;
+import model.aeropuerto.Alianza;
 
 public class LineasAereasLogic {
 
@@ -17,6 +18,20 @@ public class LineasAereasLogic {
 		}
 		
 		return listaAerolineas;
+	}
+	
+	
+	public void insertar(String nombre, String alianza){
+		
+		try(JdbcDaoFactory f = new JdbcDaoFactory()){
+			
+			AerolineaDao adao = f.getDao(JdbcAerolineaDao.class);
+			
+			
+			
+			adao.insert(new Aerolinea(nombre, Alianza.SkyTeam));
+		}
+		
 	}
 	
 	

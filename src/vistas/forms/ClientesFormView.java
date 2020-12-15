@@ -172,7 +172,7 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(txtEmail);
 		
 		//Row 7 ------
-		lblTelefono = new JLabel("TELÉFONO", JLabel.CENTER);
+		lblTelefono = new JLabel("TELÃ‰FONO", JLabel.CENTER);
 		lblTelefono.setFont(f2);
 		
 		JLabel lblVacia = new JLabel("");
@@ -211,7 +211,7 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(txtTelefonoLaboral);
 		
 		//Row 11 ------
-		lblDireccion = new JLabel("DIRECCIÓN", JLabel.CENTER);
+		lblDireccion = new JLabel("DIRECCIÃ“N", JLabel.CENTER);
 		lblDireccion.setFont(f2);
 		
 		JLabel lblVacia2 = new JLabel();
@@ -260,7 +260,7 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(txtDirCodPostal);
 	
 		//Row 16 ------
-		lblDirPais = new JLabel("País:", JLabel.TRAILING);
+		lblDirPais = new JLabel("PaÃ­s:", JLabel.TRAILING);
 		lblDirPais.setFont(f);
 		
 		txtDirPais = new JTextField();
@@ -289,7 +289,7 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(lblVacia3);
 	
 		//Row 19 ------
-		lblNumero = new JLabel("Número:", JLabel.TRAILING);
+		lblNumero = new JLabel("NÃºmero:", JLabel.TRAILING);
 		lblNumero.setFont(f);
 		
 		txtNumero = new JTextField();
@@ -299,7 +299,7 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(txtNumero);
 	
 		//Row 20 ------
-		lblAutoridadEmision = new JLabel("Autoridad emisión:", JLabel.TRAILING);
+		lblAutoridadEmision = new JLabel("Autoridad emisiÃ³n:", JLabel.TRAILING);
 		lblAutoridadEmision.setFont(f);
 		
 		txtAutoridadEmision = new JTextField();
@@ -309,7 +309,7 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(txtAutoridadEmision);
 	
 		//Row 21 ------
-		lblFechaEmision = new JLabel("Fecha emisión:", JLabel.TRAILING);
+		lblFechaEmision = new JLabel("Fecha emisiÃ³n:", JLabel.TRAILING);
 		lblFechaEmision.setFont(f);
 		
 		dateFechaEmision = DatePicker.getDatePicker();
@@ -327,7 +327,7 @@ public class ClientesFormView extends JPanel {
 		panelInferior.add(dateFechaVencimiento.getDatePickerImpl());
 	
 		//Row 23 ------
-		lblPais_pasaporte = new JLabel("País:", JLabel.TRAILING);
+		lblPais_pasaporte = new JLabel("PaÃ­s:", JLabel.TRAILING);
 		lblPais_pasaporte.setFont(f);
 		
 		txtPais_pasaporte = new JTextField();
