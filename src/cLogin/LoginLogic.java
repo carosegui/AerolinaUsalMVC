@@ -9,7 +9,9 @@ import vistas.FrameGeneralView;
 
 
 public class LoginLogic {
-
+	
+	public int userID;
+	
 	// CAMBIAR A CONTROLLER
 	public boolean verificarLogin(String usuario, String clave){
 		
@@ -23,11 +25,10 @@ public class LoginLogic {
 			final UsuarioDAO usuarioDao = f.getDao(JdbcUsuarioDao.class);
     		
     		user = usuarioDao.getByNamePassword(usuario, clave);
-    		//SELECT * FROM usuarios WHERE clave = ? AND nombre_usuario = ? 
     		
-    
+    		userID = user.getIdUsuarios();
     		
-    		System.out.println(user);
+    		
     		if(user != null) {
     			verificado = true;
     		}
