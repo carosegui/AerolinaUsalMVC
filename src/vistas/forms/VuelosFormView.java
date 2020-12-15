@@ -208,7 +208,7 @@ public class VuelosFormView extends JPanel {
 	//Usar este metodo cuando se utiliza el boton SELECCIONAR
 	//Llena los JTextFields con los datos correspondientes
 	public void setSelectedRow(Object data[]) {
-		txtNumero.setText((String) data[0]);
+		txtNumero.setText((String) data[0].toString());
 		txtCantAsientos.setText((String) data[1]);
 		
 		dateFechaSalida.setModelValue((Date) data[2]); //TODO: Ver si funciona
